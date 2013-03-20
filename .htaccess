@@ -1,0 +1,6 @@
+#Redirect on error
+ErrorDocument 404 http://www.yoursite.com/redirect/404.php
+
+#Rewrite mod
+RewriteEngine on
+#RewriteRule ^product/([^/.]+)/?$ product.php?id=$1 [L]
