@@ -1,0 +1,26 @@
+############
+## Netbeans
+############
+nbproject
+
+############
+## Windows
+############
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+
+
+# Mac crap
+.DS_Store
