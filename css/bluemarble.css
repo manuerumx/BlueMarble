@@ -6,7 +6,373 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
-    display: block;
+body{
+    background-color: #000;
+    color: #FFF;
+}
+a:link, a:visited {
+    color: #cff;
+    text-decoration: underline;
+}
+a:active, a:hover {
+    color: #cf3;
+    text-decoration: none;
 }
 
+.logo{    
+    background: transparent url('../media/blue_marble225.jpg') no-repeat 3px center;
+    width: 230px;
+    height: 200px;
+    padding-top: 10px;
+}
+
+/*CSS styles page structure*/
+.bluemarble_container {
+    width: 960px;
+    margin: 0 auto;
+}
+#bluemarble_top_section {
+    width: 100%;
+    height: 215px;
+    background: url(../media/page/bluemarble_top_bg.jpg) repeat-x;
+}
+
+#bluemarble_header {
+    width: 960px;
+    height: 257px;
+    padding: 1px 0 0 0;
+}
+#bluemarble_logo_area {
+    float: left;
+    color: #fff;
+    width: 300px;
+    height: 75px;
+    margin: 40px 0 0 15px;
+}
+#bluemarble_logo_area h2 {
+    font-size: 36px;
+    color: #FFF;
+    margin: 0 0 15px 0;
+}
+#bluemarble_logo_area p {
+    font-size: 18px;
+    color: #fff;
+    font-family: "Times New Roman", Times, serif;
+    margin: 0 0 0 50px;
+}
+#bluemarble_header_right {
+    float: right;
+    width: 420px;
+    height: 110px;
+    margin: 30px 0 0 0;
+}
+#bluemarble_header_right h2 {
+    color: #fff;
+    font-size: 26px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+#bluemarble_header_right p {
+    margin: 0;
+    color: #9cf;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 18px;
+    line-height: 1.3em;
+}
+#bluemarble_menu {
+    float: left;
+    width: 960px;
+    height: 60px;
+    padding: 0;
+    margin: 14px 0 0 0;
+    border-bottom: 1px solid #FFF;
+}
+#bluemarble_menu ul {
+    margin: 0;
+    padding: 0;
+    width: 960px;
+    margin-top: -2px;
+    list-style: none;
+}
+#bluemarble_menu ul li {
+    display: inline;
+}
+#bluemarble_menu ul li {
+    float: left;
+    height: 36px;
+    padding: 15px 30px 9px 16px;
+    text-align: center;
+    font-size: 12px;
+    text-align: left;
+    text-decoration: none;
+    border-right: 1px solid #CDCDCD;
+    font-size: 20px;
+    outline: 0;
+    color: #d0e6ff;
+}
+#bluemarble_menu ul li p {
+    color: #246;
+    font-size: 15px;
+    text-align: left;
+    margin: 0;
+}
+#bluemarble_menu ul li a {
+    text-decoration: none;
+}
+#bluemarble_menu ul li a:hover {
+    text-decoration: none;
+}
+#bluemarble_menu .last {
+    border-right: 0;
+}
+
+#bluemarble_menu li:hover, #bluemarble_menu .current {
+    background: url(../media/page/bluemarble_menu_current.png) top repeat-x;
+}
+#bluemarble_middle_section {
+    background: url(../media/page/bluemarble_middle_bg.jpg) #0A1C2F repeat-x;    
+}
+#bluemarble_buttom_section {    
+     background: url(../media/page/bluemarble_bottom_panel_bg.png) ;
+}
+#bluemarble_content {
+    width: 960px;
+    border: 1px solid #CDCDCD;
+}
+.bluemarble_3_col {
+    float: left;
+    width: 275px;
+    padding: 20px 0;
+}
+.double_section {
+    margin: 0 20px;
+    min-height: 120px;
+    width: 625px;
+}
+.middle {
+    margin: 0 20px;
+    min-height: 280px;
+    width: 330px;
+}
+.right_section {    
+    border-left: 1px solid #fff;
+    padding: 20px 0 20px 19px;    
+}
+.left_section {    
+    border-right: 1px solid #fff;
+    padding: 20px 19px 20px 0;
+}
+
+.mid_img {
+    margin: 0 0 10px 0;
+}
+.image {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+.bluemarble_section_2 {
+    width: 275px;
+    background: url(../media/page/bluemarble_section_1.png) no-repeat top;
+    margin: 20px 0 0 -10px;
+    padding: 10px;
+}
+.bluemarble_section_2 h4 {
+    margin: 0 0 5px 0;
+}
+.bluemarble_section_2 p {
+    margin: 0 0 5px 16px;
+}
+.bluemarble_bottom_panel {
+    background:#1f1f1f;
+    width: 960px;
+}
+.bottmo_middle {
+    margin: 0 20px;
+    width: 330px;
+}
+.bottom_right {
+    padding: 20px 0 20px 20px;
+}
+.bottom_left {
+    padding: 20px 20px 20px 0;
+}
+.bluemarble_newsletter {
+    background: url(../media/page/bluemarble_newsletter_bg.png);
+    width: 266px;
+    height: 156px;
+    font-family: "Times New Roman", Times, serif;
+}
+.bluemarble_newsletter h4 {
+    font-size: 15px;
+    color: #000;
+    margin: 2px 0 0 8px;
+    background: 0;
+}
+.bluemarble_newsletter p {
+    font-size: 13px;
+    color: #141414;
+    margin: 15px 0 0 60px;
+}
+.bluemarble_h_line {
+    height: 0;
+    border-top: 1px solid #FFF;
+    margin: 0 0 5px 0;
+}
+.bluemarble_more {
+    float: right;
+    background: url(../media/page/bluemarble_more.png) no-repeat;
+    width: 81px;
+    font-size: 13px;
+    text-align: center;
+    margin: 10px 10px 10px 0;
+    color: #ffc600;
+    padding: 3px 0 0 0;
+}
+
+form {
+    margin: 15px 0 0 0;
+}
+label {
+    float: left;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 13px;
+    color: #a0a5ac;
+    margin: 0 0 0 10px;
+}
+.field {
+    float: left;
+    width: 116px;
+    height: 19px;
+    border: 0;
+    color: #000;
+    font-size: 12px;
+    background: url(../media/page/bluemarble_textbox.jpg) no-repeat;
+    margin: 0 0 0 10px;
+    padding: 2px 5px 0 5px;
+}
+.button {
+    width: 60px;
+    height: 20px;
+    font-size: 11px;
+    border: 0;
+    color: #424242;
+    background-color: #bebebe;
+    background-position: 10px 9px;
+    margin: 0;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.bluemarble_more a {
+    color: #ffc600;
+    text-decoration: none;
+}
+.bluemarble_more:hover {
+    text-decoration: underline;
+}
+.bluemarble_list {
+    list-style: none;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 11px;
+    color: #a0a5ac;
+    padding: 0;
+    margin: 0;
+}
+.bluemarble_list li {
+    background: url(../media/page/bluemarble_bullet.png) no-repeat;
+    background-position: 0 6px;
+    padding: 0 0 0 15px;
+    margin: 0 0 5px 0;
+}
+.bluemarble_list a {
+    color: #cff;
+    text-decoration: none;
+}
+.bluemarble_list a:hover {
+    color: #cf0;
+    text-decoration: none;
+}
+.bullet_arrow {
+    float: left;
+    margin: 0 0 0 20px;
+}
+.bullet_arrow li {
+    background: url(../media/page/bluemarble_bullet_arrow_2.png) no-repeat;
+    background-position: 0 7px;
+    padding: 0 0 0 15px;
+    margin: 0 0 5px 0;
+}
+#bluemarble_footer {
+    width: 280px;
+    color: #6ac;
+    margin: 0 0 10px 0;
+    text-align: center;
+    padding: 10px 0;
+}
+#bluemarble_footer_top {
+    width: 280px;
+    height: 4px;
+    background: url(../media/page/bluemarble_footer_top.png) no-repeat;
+}
+#bluemarble_footer_mid {
+    width: 270px;
+    background: url(../media/page/bluemarble_footer_mid.png);
+    padding: 0 5px;
+}
+#bluemarble_footer_bottom {
+    width: 280px;
+    height: 4px;
+    background: url(../media/page/bluemarble_footer_bottom.png) no-repeat;
+}
+#bluemarble_footer a {
+    color: #6ac;
+}
+.cleaner {
+    clear: both;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+.cleaner_width_left {
+    float: left;
+    width: 50px;
+    height: 1px;
+}
+.cleaner_width_right {
+    float: right;
+    width: 50px;
+    height: 1px;
+}
+.blockquote_titl {
+    font-size: 11px;
+    color: #9cf;
+}
+
+p {
+    font-size: 13px;
+    color: #FFF;
+    text-align: justify;
+    margin: 0 0 20px 0;
+}
+h1 {
+    font-size: 28px;
+    color: #9cf;
+    font-weight: normal;
+    margin: 0 0 20px 0;
+}
+h2 {
+    font-size: 20px;
+    color: #cff;
+    margin: 0 0 20px 0;
+}
+h3 {
+    font-size: 25px;
+    color: #9cf;
+    margin: 0 0 20px 0;
+}
+h4 {
+    font-size: 13px;
+    color: #cff;
+    margin: 0 0 20px 5px;
+    background: url(../media/page/bluemarble_bullet_arrow.png) no-repeat;
+    background-position: 0 6px;
+    padding: 0 0 0 15px;
+}
