@@ -1,29 +1,22 @@
 /* 
     Document   : bluemarble
     Created on : 20/03/2013, 03:28:56 PM
-    Author     : indigo
+    Author     : Manuel González Rivera
     Description:
         Purpose of the stylesheet follows.
 */
-
 body{
     background-color: #000;
     color: #FFF;
+    margin: 0;
 }
 a:link, a:visited {
-    color: #cff;
+    color: #99CCFF;
     text-decoration: underline;
 }
 a:active, a:hover {
-    color: #cf3;
+    color:  #99CCFF;
     text-decoration: none;
-}
-
-.logo{    
-    background: transparent url('../media/blue_marble225.jpg') no-repeat 3px center;
-    width: 230px;
-    height: 200px;
-    padding-top: 10px;
 }
 
 /*CSS styles page structure*/
@@ -37,6 +30,12 @@ a:active, a:hover {
     background: url(../media/page/bluemarble_top_bg.jpg) repeat-x;
 }
 
+#blumarble_toolbar{
+    position: absolute;
+    margin: 0 auto;
+    width: 960px;
+    height:30px;    
+}
 #bluemarble_header {
     width: 960px;
     height: 257px;
@@ -55,15 +54,16 @@ a:active, a:hover {
     margin: 0 0 15px 0;
 }
 #bluemarble_logo_area p {
-    font-size: 18px;
+    font-size: 16px;
     color: #fff;
+    font-style: italic;
     font-family: "Times New Roman", Times, serif;
     margin: 0 0 0 50px;
 }
 #bluemarble_header_right {
     float: right;
     width: 420px;
-    height: 110px;
+    height: 110px;    
     margin: 30px 0 0 0;
 }
 #bluemarble_header_right h2 {
@@ -83,14 +83,13 @@ a:active, a:hover {
     width: 960px;
     height: 60px;
     padding: 0;
-    margin: 14px 0 0 0;
-    border-bottom: 1px solid #FFF;
+    margin: 14px 0 0 0;    
 }
 #bluemarble_menu ul {
     margin: 0;
     padding: 0;
     width: 960px;
-    margin-top: -2px;
+    margin-top: -1px;
     list-style: none;
 }
 #bluemarble_menu ul li {
@@ -103,8 +102,7 @@ a:active, a:hover {
     text-align: center;
     font-size: 12px;
     text-align: left;
-    text-decoration: none;
-    border-right: 1px solid #CDCDCD;
+    text-decoration: none;    
     font-size: 20px;
     outline: 0;
     color: #d0e6ff;
@@ -119,15 +117,22 @@ a:active, a:hover {
     text-decoration: none;
 }
 #bluemarble_menu ul li a:hover {
-    text-decoration: none;
+    text-decoration: none;    
+    color: #FFF;
 }
 #bluemarble_menu .last {
     border-right: 0;
 }
 
 #bluemarble_menu li:hover, #bluemarble_menu .current {
+    
     background: url(../media/page/bluemarble_menu_current.png) top repeat-x;
+    border-left: 1px solid #0A1C2F;
+    border-right: 1px solid #0A1C2F;
+    border-top: 1px solid #FFF;
+    
 }
+
 #bluemarble_middle_section {
     background: url(../media/page/bluemarble_middle_bg.jpg) #0A1C2F repeat-x;    
 }
@@ -136,7 +141,7 @@ a:active, a:hover {
 }
 #bluemarble_content {
     width: 960px;
-    border: 1px solid #CDCDCD;
+    border-bottom: 1px solid #CDCDCD;
 }
 .bluemarble_3_col {
     float: left;
@@ -154,11 +159,9 @@ a:active, a:hover {
     width: 330px;
 }
 .right_section {    
-    border-left: 1px solid #fff;
     padding: 20px 0 20px 19px;    
 }
 .left_section {    
-    border-right: 1px solid #fff;
     padding: 20px 19px 20px 0;
 }
 
@@ -169,12 +172,7 @@ a:active, a:hover {
     float: left;
     margin: 0 10px 10px 0;
 }
-.bluemarble_section_2 {
-    width: 275px;
-    background: url(../media/page/bluemarble_section_1.png) no-repeat top;
-    margin: 20px 0 0 -10px;
-    padding: 10px;
-}
+
 .bluemarble_section_2 h4 {
     margin: 0 0 5px 0;
 }
@@ -185,7 +183,7 @@ a:active, a:hover {
     background:#1f1f1f;
     width: 960px;
 }
-.bottmo_middle {
+.bottom_middle {
     margin: 0 20px;
     width: 330px;
 }
@@ -193,7 +191,8 @@ a:active, a:hover {
     padding: 20px 0 20px 20px;
 }
 .bottom_left {
-    padding: 20px 20px 20px 0;
+    margin-left: 10px;
+    padding: 20px 10px 20px 0;
 }
 .bluemarble_newsletter {
     background: url(../media/page/bluemarble_newsletter_bg.png);
@@ -283,7 +282,7 @@ label {
     margin: 0 0 5px 0;
 }
 .bluemarble_list a {
-    color: #cff;
+    color: #7B7B7B;
     text-decoration: none;
 }
 .bluemarble_list a:hover {
@@ -299,6 +298,17 @@ label {
     background-position: 0 7px;
     padding: 0 0 0 15px;
     margin: 0 0 5px 0;
+}
+
+#bluemarble_copy {
+    width: 960px;
+    color: #7B7B7B;
+    font-size:12px;
+    text-align: center;
+    padding:5px 0;
+}
+#bluemarble_copy a{    
+    color: #CDCDCD;    
 }
 #bluemarble_footer {
     width: 280px;
@@ -354,25 +364,32 @@ p {
 }
 h1 {
     font-size: 28px;
-    color: #9cf;
+    color: #FFFFFF;
     font-weight: normal;
     margin: 0 0 20px 0;
 }
 h2 {
     font-size: 20px;
-    color: #cff;
+    color: #C9C9C9;
     margin: 0 0 20px 0;
 }
 h3 {
     font-size: 25px;
-    color: #9cf;
+    color: #FFFFFF;
     margin: 0 0 20px 0;
 }
 h4 {
     font-size: 13px;
-    color: #cff;
+    color: #1B1B1B;
     margin: 0 0 20px 5px;
     background: url(../media/page/bluemarble_bullet_arrow.png) no-repeat;
     background-position: 0 6px;
     padding: 0 0 0 15px;
+}
+.spaceapps{
+    padding: 0 0 0 70px;
+}
+
+.nasa{
+    padding: 7px 0 0 60px;
 }
