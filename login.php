@@ -2,15 +2,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
     <head>
-        <title>The Blue Marble Project</title>
+        <title>Login - The Blue Marble Project</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="keywords" content="Blue Marble NASA SpaceApps Challenge Image"/>
         <meta name="description" content="Small project for SpaceApps Challenge 2013"/>
         <meta name="author" content="Manuel Gonzalez R"/>
         <meta name="robots" content="INDEX,FOLLOW"/>        
-        <meta name="viewport" content="width=1350px" />        
-        <link rel="shortcut icon" type="image/x-icon" href="media/favicon.ico">
-        <link type="text/css" rel="stylesheet" href="css/bluemarble.css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="media/favicon.ico">        
+        <link type="text/css" rel="stylesheet" href="css/bluemarble.css"/>        
     </head>
     <body>        
         <div id="bluemarble_top_section">
@@ -24,9 +23,9 @@
                                     <li><a href="#">English</a></li>
                                     <li><a href="#">Espa&ntilde;ol</a></li>
                                 </ul>
-
+                                
                             </li>
-
+                            
                         </ul>
                     </nav>
                 </div>
@@ -39,8 +38,8 @@
                     <div class="cleaner"></div>                
                     <div id="bluemarble_menu">
                         <ul>
-                            <li class="current">
-                               <a href="#">Home</a>
+                            <li>
+                               <a href="index.php">Home</a>
                                 <p>Start here</p>
                             </li>                                                       
                             <li>
@@ -59,7 +58,7 @@
                                 <a href="#">Help Us</a>
                                 <p>Get involved</p>
                             </li>
-                            <li class="last">
+                            <li class="last current">
                                 <a href="login.php">Login</a>
                                 <p>Register</p>
                             </li>                            
@@ -70,44 +69,84 @@
         </div><!-- End Of Top Section -->   
         <div id="bluemarble_middle_section">  
             <div class="bluemarble_container">
-                <div id="bluemarble_content">
-                    <div class="bluemarble_3_col left_section">                        
-                        <h1>news &amp; events</h1>
-                        <h2>Aenean cursmaecenas</h2>                        
+                <div id="bluemarble_content">                    
+                    <div class="bluemarble_3_col double_section">
+                        <h2>Register</h2>
+                        <p>Not a member already?</p>
+                        <h3>Why should you register</h3>
                         <p>
-                           Praesent dapibus, neque id cursus faucibus, tortor 
-                           neque egestas augue, eu vulputate magna eros eu erat. 
-                           Aliquam erat volutpat. Nam dui mi, tincidunt quis, 
-                           accumsan porttitor, facilisis luctus, metus. 
-                           <a href="#">Read More</a>
-                        </p>                                           
-            </div>               
-            <div class="bluemarble_3_col middle">
-                <h1>header 1</h1>
-                <h2>header 2</h2>
-                <h3>header 3</h3>
-                <h4>header 4</h4>                
-                <p>
-                 hello world   
-                 <br />
-                 <a href="#"><strong>View All</strong></a>
-                </p>
-            </div>
-
-            <div class="bluemarble_3_col right_section">
-                <h1>about us</h1>                
-                <p>Duis vitae velit sed dui malesuada dignissim. Donec mollis aliquet ligula. Maecenas adipiscing elementum ipsum. Pellentesque vitae magna. Sed nec est. Suspendisse a nibh tristique justo rhoncus volutpat.</p>                   
-                <ul class="bluemarble_list">
-                    <li><a href="#">Quisque in diam a justo condimentum</a></li>
-                    <li><a href="#">Fusce urna tortor, consequat eu stie</a></li>
-                    <li><a href="http://www.bluemarble.com" target="_parent">Download Free Website Templates</a></li>
-                </ul>               
-            </div>
-            <div class="cleaner"></div>
-        </div>
-    </div><!-- End Of Container  -->    
+                            <ol>
+                                <li>its fun</li>
+                                <li>See amazing pictures from our home.</li>
+                            </ol>                            
+                        </p>
+                        <p>
+                            <?php
+                            require_once 'config/bm_config.php';
+                            use BlueMarble as BM;
+                            $x = new BM\config();
+                            echo "<br/>";
+                            echo $x->SayHi();
+                            ?>
+                        </p>
+                    </div>                    
+                    <div class="bluemarble_3_col right_section">
+                        <div class="boxshade">
+                            <h2 class="textshadow">Login</h2>
+                            <form>                                                                                    
+                            <table width="100%">
+                                <tr>
+                                    <td><label for="user">Username</label></td>
+                                    <td><input type="username" name="user" value="" size="25"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="pass">Password</label></td>
+                                    <td><input type="password" name="pass" value="" size="25"/></td>
+                                </tr>
+                                <tr><td colspan="2">&nbsp;</td></tr>
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        <button type="submit" value="Send">Begin</button>
+                                        <button type="reset" value="reset">Reset</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br/>
+                            </form>
+                        </div>
+                        <br/>
+                        <div class="boxshade">
+                            <h2 class="textshadow">Register</h2>
+                            <form>
+                                <table width="100%">
+                                    <tr>
+                                        <td><label for="username">Username</label></td>
+                                        <td><input type="text" name="username" value="" size="25"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="email">Email</label></td>
+                                        <td><input type="text" name="email" value="" size="25"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="password">Password</label></td>
+                                        <td><input type="password" name="password" value="" size="25"/></td>
+                                    </tr>
+                                    <tr><td colspan="2">&nbsp;</td></tr>
+                                    <tr>
+                                        <td colspan="2" align="center">
+                                            <button type="submit" value="Send">Begin</button>
+                                            <button type="reset" value="reset">Reset</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>                  
+                <div class="cleaner"></div>
+                </div>
+            </div><!-- End Of Container  -->    
 </div><!-- End Of Middle Section  -->   
-
+  
   <div id="bluemarble_buttom_section">
 <div class="bluemarble_container">
 <div class="bluemarble_bottom_panel">
