@@ -43,14 +43,14 @@ a:active, a:hover {
 }
 #bluemarble_logo_area {
     float: left;
-    color: #fff;
+    color: #fff;    
     width: 300px;
     height: 75px;
     margin: 40px 0 0 15px;
 }
 #bluemarble_logo_area h2 {
     font-size: 36px;
-    color: #FFF;
+    color: #FFF;    
     margin: 0 0 15px 0;
 }
 #bluemarble_logo_area p {
@@ -115,6 +115,7 @@ a:active, a:hover {
 }
 #bluemarble_menu ul li a {
     text-decoration: none;
+    text-shadow: 3px 2px #000;
 }
 #bluemarble_menu ul li a:hover {
     text-decoration: none;    
@@ -124,13 +125,11 @@ a:active, a:hover {
     border-right: 0;
 }
 
-#bluemarble_menu li:hover, #bluemarble_menu .current {
-    
+#bluemarble_menu li:hover, #bluemarble_menu .current {    
     background: url(../media/page/bluemarble_menu_current.png) top repeat-x;
     border-left: 1px solid #0A1C2F;
     border-right: 1px solid #0A1C2F;
     border-top: 1px solid #FFF;
-    
 }
 
 #bluemarble_middle_section {
@@ -529,4 +528,8 @@ label{
     font-weight: bold;
     text-transform: capitalize;
     font-family: monospace;
+}
+
+.textshadow{
+    text-shadow: 3px 2px #000;
 }

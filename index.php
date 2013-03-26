@@ -8,8 +8,9 @@
         <meta name="description" content="Small project for SpaceApps Challenge 2013"/>
         <meta name="author" content="Manuel Gonzalez R"/>
         <meta name="robots" content="INDEX,FOLLOW"/>        
-        <link rel="shortcut icon" type="image/x-icon" href="media/favicon.ico">        
-        <link type="text/css" rel="stylesheet" href="css/bluemarble.css"/>        
+        <meta name="viewport" content="width=1350px" />        
+        <link rel="shortcut icon" type="image/x-icon" href="media/favicon.ico">
+        <link type="text/css" rel="stylesheet" href="css/bluemarble.css"/>
     </head>
     <body>        
         <div id="bluemarble_top_section">

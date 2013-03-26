@@ -59,7 +59,7 @@
                                 <p>Get involved</p>
                             </li>
                             <li class="last current">
-                                <a href="#">Login</a>
+                                <a href="login.php">Login</a>
                                 <p>Register</p>
                             </li>                            
                         </ul> 
@@ -78,22 +78,30 @@
                             <ol>
                                 <li>its fun</li>
                                 <li>See amazing pictures from our home.</li>
-                            </ol>
-                            
+                            </ol>                            
+                        </p>
+                        <p>
+                            <?php
+                            require_once 'config/bm_config.php';
+                            use BlueMarble as BM;
+                            $x = new BM\config();
+                            echo "<br/>";
+                            echo $x->SayHi();
+                            ?>
                         </p>
                     </div>                    
                     <div class="bluemarble_3_col right_section">
                         <div class="boxshade">
-                            <h3>Login</h3>
+                            <h2 class="textshadow">Login</h2>
                             <form>                                                                                    
                             <table width="100%">
                                 <tr>
                                     <td><label for="user">Username</label></td>
-                                    <td><input type="username" name="user" value="" size="20"/></td>
+                                    <td><input type="username" name="user" value="" size="25"/></td>
                                 </tr>
                                 <tr>
                                     <td><label for="pass">Password</label></td>
-                                    <td><input type="password" name="pass" value="" size="20"/></td>
+                                    <td><input type="password" name="pass" value="" size="25"/></td>
                                 </tr>
                                 <tr><td colspan="2">&nbsp;</td></tr>
                                 <tr>
@@ -105,7 +113,34 @@
                             </table>
                             <br/>
                             </form>
-                        </div>                        
+                        </div>
+                        <br/>
+                        <div class="boxshade">
+                            <h2 class="textshadow">Register</h2>
+                            <form>
+                                <table width="100%">
+                                    <tr>
+                                        <td><label for="username">Username</label></td>
+                                        <td><input type="text" name="username" value="" size="25"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="email">Email</label></td>
+                                        <td><input type="text" name="email" value="" size="25"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="password">Password</label></td>
+                                        <td><input type="password" name="password" value="" size="25"/></td>
+                                    </tr>
+                                    <tr><td colspan="2">&nbsp;</td></tr>
+                                    <tr>
+                                        <td colspan="2" align="center">
+                                            <button type="submit" value="Send">Begin</button>
+                                            <button type="reset" value="reset">Reset</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
                     </div>                  
                 <div class="cleaner"></div>
                 </div>

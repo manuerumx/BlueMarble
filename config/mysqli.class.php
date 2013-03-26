@@ -1,4 +1,5 @@
 <?php
+namespace cnn;
 /**
  * Class used for handle MySQL connections
  * @package BlueMarble
@@ -22,6 +23,62 @@
  */
 class mysqliConn{
     /**
+     * The active connection
+     *
+     * @var object Connection Object 
+     */
+    protected $conn;
+    /**
+     * The active recordset
+     *
+     * @var object Active Recordset
+     */
+    public $rs;
+    /**
+     * Associative array with the current row
+     *
+     * @var array Current Row
+     * @see $rs
+     */
+    public $row = array();    
+    /**
+     * Active/Last Sql Query
+     *
+     * @var string SQL Query
+     */
+    public $sql;
+    /**
+     * Database host
+     *
+     * @var string Database Host 
+     */
+    protected $host;
+    /**
+     * Database name
+     *
+     * @var string Database name
+     */
+    protected $database;
+    /**
+     * Database username
+     *
+     * @var string Database User
+     */
+    protected $user;
+    /**
+     * Database password
+     *
+     * @var string Database Password
+     */
+    protected $password;
+    /**
+     * Defines if the connection is persistent
+     * 
+     * @var string Connection Option
+     */
+    protected $persistant;
+    
+    /**
      * Initialize the class
      * 
      * @param $host string
@@ -30,8 +87,7 @@ class mysqliConn{
      * @param $password string
      * @param $persistant boolean
      */
-    public function __construct($obj, $host =DB_HOST, $database = DB_DATABASE, $user = DB_USER, $password = DB_PASS, $persistant = DB_PERSIST) {
-        $this->HtmlC = $obj;
+    public function __construct($host =DB_HOST, $database = DB_DATABASE, $user = DB_USER, $password = DB_PASS, $persistant = DB_PERSIST) {        
         $this->host = $host;
         $this->database = $database;
         $this->user = $user;
@@ -51,10 +107,12 @@ class mysqliConn{
                 $this->conn = mysqli_connect($this->host, $this->user, $this->password, $this->database);        
             }
             if(!$this->conn){                     
-                $this->HtmlC->display_error('mysqliConn:Conn()', mysqli_connect_error());
+                //$this->HtmlC->display_error('mysqliConn:Conn()', mysqli_connect_error());
+                echo "Connection fail";
             }
         }catch(Exception $e){
-           $this->HtmlC->display_error('mysqliConn:Conn()',$e->getMessage());
+            echo $e->getMessage();
+           //$this->HtmlC->display_error('mysqliConn:Conn()',$e->getMessage());
         }
     }
     /**
@@ -163,16 +221,17 @@ class mysqliConn{
     /**
      * Close the connection
      */
-    public function Close() {
-        $type = (is_resource($this->conn) ? get_resource_type($this->conn) : "none");        
+    public function Close() {                
+        $type = (is_resource($this->conn) ? get_resource_type($this->conn) : "none");
         if(strstr($type,"mysqli")){
-            mysqli_close($this->conn);
+            mysqli_close($this->conn);                        
         }else{
-            if($type!='Unknown'){
-                //
+            if($type=='none'){
+                //no active connection
+            }elseif($type=='Unknown'){
+                //unknown resource type 
             }
         }        
-    }
-    
+    }    
 }
 ?>
