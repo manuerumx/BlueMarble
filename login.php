@@ -1,3 +1,8 @@
+<?php
+require_once('inc/bm_session.php');
+use sess as sessionx;
+$session = new sessionx\bm_session("Prueba");
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -83,10 +88,16 @@
                         <p>
                             <?php
                             require_once 'config/bm_config.php';
+                            require_once 'inc/bm_user.php';
+                            use user as usr;
                             use BlueMarble as BM;
+                            $y = new usr\bm_user();
+                            echo "<br/>" . $y->getServTime() . "<br/>";
+                            echo date('Y-m-d T H:i:s'). "<br />";
                             $x = new BM\config();
                             echo "<br/>";
-                            echo $x->SayHi();
+                            //echo $session->Get("Nombre","No se guardo");
+                            //$session->delete();
                             ?>
                         </p>
                     </div>                    

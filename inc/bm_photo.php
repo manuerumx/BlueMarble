@@ -1,4 +1,5 @@
 <?php
+namespace photo;
 /**
  * Class used for handle Photo information
  * @package BlueMarble
@@ -21,7 +22,13 @@
  *  
  */
 class bm_photo {
-    //put your code here
+    /**
+     * Initialize the class
+     */
+    public function __construct(){}
+    /**
+     * Destroy the class
+     */
+    public function __destruct(){}
 }
-
 ?>

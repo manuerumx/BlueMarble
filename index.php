@@ -1,3 +1,9 @@
+<?php
+require_once('inc/bm_session.php');
+use sess as sessionx;
+$session = new sessionx\bm_session("Prueba");
+$session->Set("Nombre", "Manuel");
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>

@@ -2,12 +2,13 @@
 namespace BlueMarble;
 
 define('DB_HOST', 'localhost');
-define('DB_DATABASE', 'sakila');
+define('DB_DATABASE', 'BlueMarble');
 define('DB_USER', 'root');
-define('DB_PASS', 'mypassword');
-define('DB_PERSIST', false);
+define('DB_PASS', '');
+define('DB_PERSIST', true);
 
 require_once 'mysqli.class.php';
+require_once '/inc/bm_user.php';
 
 class config{
     private $lang;
@@ -15,7 +16,10 @@ class config{
     private $sessionid;
     private $userid;
     private $cnnx;
-   
+    private $user;    
+    /**
+     * Initialize the class
+     */
     public function __construct() {        
         $this->cnnx = new \cnn\mysqliConn;
         if(!$this->cnnx){
@@ -26,6 +30,14 @@ class config{
             //echo $this->cnnx->numRows();
         }
     }
+    /**
+     * Destroy the class
+     */
+    public function __destruct() {        
+        if($this->cnnx!=null){
+            $this->cnnx->Close();
+        }
+    }    
     
     public function SayHi(){
         return 'Hello World!';
@@ -38,13 +50,6 @@ class config{
     public function endSession(){}
     
     public function setConfig(){}
-    public function getConfig(){}
-    
-    
-    public function __destruct() {        
-        if($this->cnnx!=null){
-            $this->cnnx->Close();
-        }
-    }    
-}    
+    public function getConfig(){}      
+}
 ?>
