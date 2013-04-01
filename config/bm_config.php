@@ -4,7 +4,7 @@ namespace BlueMarble;
 define('DB_HOST', 'localhost');
 define('DB_DATABASE', 'BlueMarble');
 define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_PASS', 'Adivina01');
 define('DB_PERSIST', true);
 
 require_once 'mysqli.class.php';
