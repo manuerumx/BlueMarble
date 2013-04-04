@@ -193,11 +193,11 @@ $session = new sessionx\bm_session("Prueba");
                                     </tr>
                                     <tr>
                                         <td><label for="email">Email</label></td>
-                                        <td><input id="regeml" type="text" name="email" value="" size="25"/></td>
+                                        <td><input id="regeml" type="text" name="regeml" value="" size="25"/></td>
                                     </tr>
                                     <tr>
                                         <td><label for="password">Password</label></td>
-                                        <td><input id="regpsw" type="password" name="password" value="" size="25"/></td>
+                                        <td><input id="regpsw" type="password" name="regpsw" value="" size="25"/></td>
                                     </tr>
                                     <tr><td colspan="2">&nbsp;</td></tr>
                                     <tr>

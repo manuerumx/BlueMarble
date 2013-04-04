@@ -10,7 +10,11 @@ namespace cnn;
  * @license http://opensource.org/licenses/MIT MIT
  *  
  */
-
+define('DB_HOST', 'localhost');
+define('DB_DATABASE', 'BlueMarble');
+define('DB_USER', 'root');
+define('DB_PASS', 'Adivina01');
+define('DB_PERSIST', true);
 /**
  * Class used for handle MySQL connections
  * @package BlueMarble
@@ -21,7 +25,7 @@ namespace cnn;
  * @license http://opensource.org/licenses/MIT MIT
  *  
  */
-class mysqliConn{
+class Connection{
     /**
      * The active connection
      *
@@ -77,6 +81,9 @@ class mysqliConn{
      * @var string Connection Option
      */
     protected $persistant;
+    
+    public $errno = 0;
+    public $errdesc = "";
     
     /**
      * Initialize the class
@@ -148,7 +155,10 @@ class mysqliConn{
         }
         $this->sql = ($sql=="" ? $this->sql : $sql);
         $this->rs = mysqli_query($this->conn,$this->sql);
-
+        if(mysqli_error($this->conn)){
+            $this->errno = mysqli_errno($this->conn);
+            $this->errdesc = mysqli_error($this->conn);
+        }
     }
     /**
     * Move the pointer to the index consultation indicated
