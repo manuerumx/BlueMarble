@@ -1,7 +1,13 @@
 <?php
 require_once('inc/bm_session.php');
-use sess as sessionx;
-$session = new sessionx\bm_session("Prueba");
+$session = new sess\bm_session("bluemarble");
+$error = "";
+if($session->Get("Error","none")=="none"){
+    //do nothing
+}else{
+    $error = $session->Get("Error");
+    //handle the errors
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -142,6 +148,8 @@ $session = new sessionx\bm_session("Prueba");
                         </p>
                         <p>
                             <?php
+                            echo $error;
+                            /*
                             require_once 'config/bm_config.php';
                             require_once 'inc/bm_user.php';
                             use user as usr;
@@ -152,7 +160,8 @@ $session = new sessionx\bm_session("Prueba");
                             $x = new BM\config();
                             echo "<br/>";
                             echo $session->Get("Nombre","No se guardo");
-                            $session->delete();
+                            $session->delete();                            
+                             */
                             ?>
                         </p>
                     </div>                    

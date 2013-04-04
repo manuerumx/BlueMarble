@@ -9,7 +9,7 @@ $session->Set("type", $type);
 if($type=='log'){
     $usr = $_POST['logusr'];
     $psw = $_POST['logpsw'];
-    if(bm_login($usr, $psw)){
+    if(bm_login($usr, $psw, $session)){
         $session->Set("Login", "true");
         header('Location: blue.php');
     }else{
@@ -20,7 +20,7 @@ if($type=='log'){
     $usr = $_POST['regusr'];
     $psw = $_POST['regpsw'];
     $eml = $_POST['regeml'];
-    if(bm_register($usr, $psw, $eml)){
+    if(bm_register($usr, $psw, $eml, $session)){
         $session->Set("Login", "true");
         header('Location: profile.php');
     }else{
@@ -33,24 +33,30 @@ if($type=='log'){
     exit();
 }
 
-function bm_login($usr, $psw){
+function bm_login($usr, $psw, $sess){
     $cnn = new cnn\Connection();
     try{
-        if(!$cnn){            
+        if(!$cnn){    
+            $sess->Set("Error", "Connection Error");
             return false;
         }else{                
             $sql = "select * from bm_user where bm_username = '$usr' and bm_pass = '$psw' ";            
             $cnn->Query($sql);
-            if($cnn->errno == 0 && $cnn->numRows() > 0 ){                
+            if($cnn->errno == 0 && $cnn->numRows() > 0 ){
+                /**
+                 * TODO: Correct this. to look only the first record
+                 */
                 while($cnn->Fetch(false)){
-                    echo "here <br/>";                   
-                    echo $cnn->row[2];
+                    $idusr = $cnn->row[0];
                 }
+                $sess->Set("Id",$idusr);
+                $sess->Set("Usr",$usr);
                 return true;
-            }elseif( $cnn->errno ==0 && $cnn->numRows()==0){
-                echo "user/pass not found";
-            }else{  
-                echo "Error: " .  $cnn->errdesc;
+            }elseif( $cnn->errno ==0 && $cnn->numRows()==0){                
+                $sess->Set("Error", "User/Pass not found");
+                return false;
+            }else{                  
+                $sess->Set("Error", $cnn->errdesc);
                 return false;
             }
             $cnn->Close();
@@ -60,21 +66,24 @@ function bm_login($usr, $psw){
     }
 }
 
-function bm_register($usr, $psw, $eml){
+function bm_register($usr, $psw, $eml, $sess){
     $cnn = new cnn\Connection();
     try{        
         if(!$cnn){
+            $sess->Set("Error", "Connection Error");
             return false;
         }else{
             $sql = "insert into bm_user (bm_username, bm_email, bm_pass, bm_lastlog) ";
             $sql.= " values ('$usr', '$eml', '$psw', CURRENT_TIMESTAMP)";            
             $cnn->Query($sql);
             if($cnn->affectedRows() > 0 ){                
-                $idusr = $cnn->getInsertedId();                
+                $idusr = $cnn->getInsertedId();
+                $sess->Set("Id",$idusr);
+                $sess->Set("Usr",$usr);
                 return true;                
             }else{
                 if($cnn->errno==1062){
-                    echo "User already exist";                    
+                    $sess->Set("Error", "User already exists");
                 }                
                 return false;
             }
