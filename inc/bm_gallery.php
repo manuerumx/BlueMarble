@@ -1,4 +1,5 @@
 <?php
+namespace gal;
 /**
  * Class used for handle Photo Gallery information
  * @package BlueMarble
@@ -21,7 +22,13 @@
  *  
  */
 class bm_gallery {
-    //put your code here
+    /**
+     * Initialize the class
+     */
+    public function __construct(){}
+    /**
+     * Destroy the class
+     */
+    public function __destruct(){}
 }
-
 ?>
