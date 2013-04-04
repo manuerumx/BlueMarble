@@ -1,4 +1,5 @@
 <?php
+namespace sess;
 /**
  * Class used for handle Session information
  * @package BlueMarble
@@ -19,8 +20,56 @@
  * @license http://opensource.org/licenses/MIT MIT
  *  
  */
+session_start();
 class bm_session {
-    
+    private $time = 600;
+    private $SessionName = 'Default';
+    private $idSession;
+    /**
+     * Initialize the class
+     *
+     * @param String $SessionName
+     */     
+    public function __construct($SessionName){
+        $this->SessionName = $SessionName;
+        $this->idSession = session_id();
+    }
+    /**
+     * Set a key value
+     * 
+     * @param string $Setting
+     * @param Var $Value
+     */
+    public function Set($Setting, $Value){
+        $_SESSION[$this->SessionName][$Setting]= $Value;
+    }
+    /**
+     * Get a key value
+     * 
+     * @param string $Setting
+     * @param var $Default
+     * @return var
+     */
+    public function Get($Setting, $Default=''){
+        if(isset($_SESSION[$this->SessionName][$Setting]) && !empty($_SESSION[$this->SessionName][$Setting])){
+            return $_SESSION[$this->SessionName][$Setting];
+        }else{
+            return $Default;
+        }
+    }
+    /**
+     * Sets the expire time for the session when user is idle
+     * 
+     * @param int $time
+     */
+    public function setTime($time = 0){
+        $this->time = ($time > 0 ? $time: $this->time);
+    }
+    /**
+     * Delete the active session
+     */
+    public function delete(){
+        session_destroy();
+    }
 }
-
 ?>
