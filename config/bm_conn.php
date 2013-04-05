@@ -13,7 +13,7 @@ namespace cnn;
 define('DB_HOST', 'localhost');
 define('DB_DATABASE', 'BlueMarble');
 define('DB_USER', 'root');
-define('DB_PASS', 'Adivina01');
+define('DB_PASS', 'GuessWho');
 define('DB_PERSIST', true);
 /**
  * Class used for handle MySQL connections

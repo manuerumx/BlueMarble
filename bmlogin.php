@@ -38,6 +38,7 @@ function bm_login($usr, $psw, $sess){
     try{
         if(!$cnn){    
             $sess->Set("Error", "Connection Error");
+            $sess->Set("ErrorNo", "-99");
             return false;
         }else{                
             $sql = "select * from bm_user where bm_username = '$usr' and bm_pass = '$psw' ";            
@@ -52,11 +53,13 @@ function bm_login($usr, $psw, $sess){
                 $sess->Set("Id",$idusr);
                 $sess->Set("Usr",$usr);
                 return true;
-            }elseif( $cnn->errno ==0 && $cnn->numRows()==0){                
+            }elseif( $cnn->errno ==0 && $cnn->numRows()==0){
+                $sess->Set("ErrorNo","-1");
                 $sess->Set("Error", "User/Pass not found");
                 return false;
             }else{                  
                 $sess->Set("Error", $cnn->errdesc);
+                $sess->Set("ErrorNo", $cnn->errno);
                 return false;
             }
             $cnn->Close();
@@ -71,10 +74,11 @@ function bm_register($usr, $psw, $eml, $sess){
     try{        
         if(!$cnn){
             $sess->Set("Error", "Connection Error");
+            $sess->Set("ErrorNo","-99");
             return false;
         }else{
-            $sql = "insert into bm_user (bm_username, bm_email, bm_pass, bm_lastlog) ";
-            $sql.= " values ('$usr', '$eml', '$psw', CURRENT_TIMESTAMP)";            
+            $sql = "insert into bm_user (bm_username, bm_email, bm_pass, bm_lastlog, bm_membersince) ";
+            $sql.= " values ('$usr', '$eml', '$psw', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";            
             $cnn->Query($sql);
             if($cnn->affectedRows() > 0 ){                
                 $idusr = $cnn->getInsertedId();
@@ -84,6 +88,7 @@ function bm_register($usr, $psw, $eml, $sess){
             }else{
                 if($cnn->errno==1062){
                     $sess->Set("Error", "User already exists");
+                    $sess->Set("ErrorNo", "-2");
                 }                
                 return false;
             }
