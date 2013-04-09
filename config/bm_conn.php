@@ -94,7 +94,7 @@ class Connection{
      * @param $password string
      * @param $persistant boolean
      */
-    public function __construct($host =DB_HOST, $database = DB_DATABASE, $user = DB_USER, $password = DB_PASS, $persistant = DB_PERSIST) {        
+    public function __construct($host = DB_HOST, $database = DB_DATABASE, $user = DB_USER, $password = DB_PASS, $persistant = DB_PERSIST) {        
         $this->host = $host;
         $this->database = $database;
         $this->user = $user;

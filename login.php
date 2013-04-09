@@ -229,7 +229,7 @@ if($session->Get("Error","none")=="none"){
 <div class="bluemarble_bottom_panel">
             <div class="bluemarble_3_col bottom_left">
                 <div class="nasa">
-                <a href="http://nasa.gov/" target="_blank">
+                <a href="http://www.nasa.gov/" target="_blank">
                     <img src="media/page/nasa_logo.png" alt="NASA logo" Title="NASA"/>                
                 </a>
                 </div>

@@ -47,11 +47,14 @@ function bm_login($usr, $psw, $sess){
                 /**
                  * TODO: Correct this. to look only the first record
                  */
+                
                 while($cnn->Fetch(false)){
                     $idusr = $cnn->row[0];
+                    $lang = $cnn->row[4];
                 }
                 $sess->Set("Id",$idusr);
                 $sess->Set("Usr",$usr);
+                $sess->Set("Lang",$lang);
                 return true;
             }elseif( $cnn->errno ==0 && $cnn->numRows()==0){
                 $sess->Set("ErrorNo","-1");
@@ -84,6 +87,7 @@ function bm_register($usr, $psw, $eml, $sess){
                 $idusr = $cnn->getInsertedId();
                 $sess->Set("Id",$idusr);
                 $sess->Set("Usr",$usr);
+                $sess->Set("Lang","en_US"); //Set lang by default
                 return true;                
             }else{
                 if($cnn->errno==1062){

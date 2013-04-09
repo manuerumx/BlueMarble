@@ -1,14 +1,30 @@
 <?php
 require_once('inc/bm_session.php');
-use sess as sessionx;
-$session = new sessionx\bm_session("Prueba");
-$session->Set("Nombre", "Manuel");
+require_once 'inc/bm_user.php';
+require_once ('config/bm_conn.php');
+
+$session = new sess\bm_session("bluemarble");
+$me = new user\bm_user();
+$cnn = new cnn\Connection();
+
+$cnn->Close();
+$idusr = $session->Get("Id");
+$usr = $session->Get("Usr");
+$lang = $session->Get("Lang");
+
+if($idusr != ""){
+    $Msj = "Welcome home " .$usr;
+    
+}else{
+    $Msj = "Error Unknown";
+}
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
     <head>
-        <title>The Blue Marble Project</title>
+        <title>Welcome - The Blue Marble Project</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="keywords" content="Blue Marble NASA SpaceApps Challenge Image"/>
         <meta name="description" content="Small project for SpaceApps Challenge 2013"/>
@@ -81,11 +97,20 @@ $session->Set("Nombre", "Manuel");
                         <h1>news &amp; events</h1>
                         <h2>Aenean cursmaecenas</h2>                        
                         <p>
-                           Praesent dapibus, neque id cursus faucibus, tortor 
-                           neque egestas augue, eu vulputate magna eros eu erat. 
-                           Aliquam erat volutpat. Nam dui mi, tincidunt quis, 
-                           accumsan porttitor, facilisis luctus, metus. 
-                           <a href="#">Read More</a>
+                           <?php 
+                           
+                           $me->setValue("Test", "World");
+                           $me->setValue("MgR","Hello");
+                           $me->setValue("Lang", "en_US");
+                           
+                           echo $me->getValue("MgR", "Error");
+                           echo "<br/>";
+                           echo $me->getValue("Test","Error 2");
+                           echo "<br/>";
+                           echo $me->getValue("Lang","Error Lang");
+                           echo "<br/>";
+                           //echo $Msj;
+                           ?>
                         </p>                                           
             </div>               
             <div class="bluemarble_3_col middle">

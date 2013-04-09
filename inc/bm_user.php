@@ -10,7 +10,7 @@ namespace user;
  * @license http://opensource.org/licenses/MIT MIT
  *  
  */
-
+require_once '/config/bm_config.php';
 /**
  * Class used for handle User information
  * @package BlueMarble
@@ -21,95 +21,42 @@ namespace user;
  * @license http://opensource.org/licenses/MIT MIT
  *  
  */
-class bm_user {
-    private $userId;
-    private $userName;
-    private $userTime;
-    private $servTime;
-    private $userLang;
+class bm_user extends \BlueMarble\config{
     /**
-     * Initialize the class
+     * Destroy the class
      */
-    public function __construct() {}
-    /**
-     * Destruct the class
-     */
-    public function __destruct(){}
-    /**
-     * Returns the user ID
-     * 
-     * @return String
-     */
-    public function getUser(){
-        return $this->userId;
+    public function __destruct() {
+        $this->clearConfig();
     }
+    
     /**
-     * Sets the user ID
+     * Get a stored Value
      * 
-     * @param string $val
-     */
-    public function setUser($val){
-        $this->userId = ($val != "" ? $val : $this->userId);
-    }
-    /**
-     * Returns de Username
-     * 
-     * @return String
-     */
-    public function getUsername(){
-        return $this->userName;
-    }
-    /**
-     * Sets the username
-     * 
-     * @param string $val
-     */
-    public function setUsername($val){
-        $this->userName = ($val != "" ? $val : $this->userName);
-    }    
-    /**
-     * Returns the prefered user time zone
-     * 
-     * @return String
-     */
-    public function getUserTime(){
-        return $this->userTime;
-    }
-    /**
-     * Sets the preferred user time zone
-     * 
-     * @param string $val
-     */
-    public function setUserTime($val){
-        $this->userTime = ($val != "" ? $val : $this->userTime);
-    }
-    /**
-     * Returns the preferred user language
-     * 
+     * @param string $key
+     * @param string $default
      * @return string
      */
-    public function getUserLang(){
-        return $this->userLang;
-    }  
-    /**
-     * Sets the preferred user language
-     * 
-     * @param String $val
-     */
-    public function setUserLang($val){
-        $this->userLang = ($val != "" ? $val : $this->userLang);
+    public function getValue($key, $default = "") {
+        if(isset($this->myconf[$key]) && !empty($this->myconf[$key])){
+            return $this->myconf[$key];
+        }else{
+            return $default;
+        }
     }
     /**
-     * Returns the actual server time/date converted to UTC
+     * Store a value
      * 
-     * @return String
+     * @param string $key
+     * @param string $value
      */
-    public function getServTime(){
-        $oldTimezone = date_default_timezone_get();
-        date_default_timezone_set("UTC");        
-        $this->servTime = date('Y-m-d T H:i:s');
-        date_default_timezone_set($oldTimezone);
-        return $this->servTime;
+    public function setValue($key, $value) {
+        $this->myconf[$key] = $value;
+    }
+    /**
+     * Clear the stored data
+     */
+    public function clearConfig() {
+        $this->myconf = NULL;
     }
 }
 ?>
