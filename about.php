@@ -1,16 +1,11 @@
 <?php
-error_reporting(0);
-require_once 'inc/bm_session.php';
 require_once 'inc/bm_functionality.php';
-//require_once('config/bm_conn.php');
-use sess as sessionx;
-$session = new sessionx\bm_session("");
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>The Blue Marble Project</title>
+    <title>More - The Blue Marble Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Blue Marble NASA SpaceApps Challenge Image">
     <meta name="description" content="Small project for SpaceApps Challenge 2013">
@@ -29,18 +24,8 @@ $session = new sessionx\bm_session("");
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="ico/favicon.ico">
-    
+    <link rel="shortcut icon" href="ico/favicon.ico">    
   </head>
-<?php
-    $missions = array('ISS007-E-16306','ISS026-E-23010','ISS031-E-162193','ISS031-E-163817','ISS005-E-14731','ISS025-E-9680','ISS007-E-10357');
-    $img = array();
-    $mis = array();
-    for($i=0; $i<count($missions); $i++){
-        $img[$i] = iss_small($missions[$i]);
-        $mis[$i] = iss_mission($missions[$i]);
-    }
-?>
   <body>
     <!-- Part 1: Wrap all page content here -->
     <div id="wrap">
@@ -96,7 +81,7 @@ $session = new sessionx\bm_session("");
       <div class="container">
         <div class="hero-unit">
             <div class="row-fluid">
-                <div class="span8">
+                <div class="span12">
                     <h1>Hello!</h1>
                     <p>
                         Explore and meet your home. Marvel through one of the largest files that have the planet earth.
@@ -112,36 +97,6 @@ $session = new sessionx\bm_session("");
                         </p>
                         <small>Carl Sagan in <cite title="Pale Blue Dot">Pale Blue Dot</cite></small>
                     </blockquote>                                        
-                </div><!--/span-->            
-                <div class="span4">                  
-                    <div id="myCarousel" class="carousel slide">
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                        </ol>
-                        <!-- Carousel items -->
-                        <div class="carousel-inner">
-                            <?php 
-                            for($i=0;$i<count($missions);$i++){
-                                $act = ($i==0 ? "active" : "");
-                            ?>
-                            <div class="<?php echo $act;?> item">
-                                <p>
-                                    <img src="<?php echo $img[$i];?>"/>
-                                    <div class="carousel-caption">
-                                        <small>ISS Mission: <?php echo $mis[$i];?></small>
-                                    </div>
-                                </p>
-                            </div>
-                            <?php
-                            }
-                            ?>
-                        </div>
-                        <!-- Carousel nav -->
-                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-                    </div>
                 </div><!--/span-->
             </div><!--/row-->
           </div>          
