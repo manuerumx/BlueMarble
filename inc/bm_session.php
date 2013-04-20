@@ -31,6 +31,7 @@ class bm_session {
      * @param String $SessionName
      */     
     public function __construct($SessionName){
+        $SessionName = ($SessionName == 'Default' ? $this->genRandomString() : $SessionName);
         $this->SessionName = $SessionName;
         $this->idSession = session_id();
     }
@@ -70,6 +71,16 @@ class bm_session {
      */
     public function delete(){
         session_destroy();
+    }
+    
+    private function genRandomString() { 
+        $len = 20; 
+        $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+        $temp = ''; 
+        for ($p = 0; $p <= $len; $p++) { 
+            $temp .= $chars[mt_rand(0, strlen($chars))]; 
+        } 
+        return $temp; 
     }
 }
 ?>

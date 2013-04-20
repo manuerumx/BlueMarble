@@ -18,4 +18,34 @@ function getServTime(){
     date_default_timezone_set($oldTimezone);
     return $this->servTime;
 }
+
+/**
+ * 
+ * @param type $msj
+ */
+function Error_BM($msj){    
+?>
+<!--Error-->
+<div class="alert alert-block alert-error fade in">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Houston we have a problem!!!</h4>
+    <p>
+        <?php echo $msj?>
+    </p>    
+</div>
+<!--End Error-->
+<?php 
+}
+
+function Alert_BM($msj){
+?>
+<!--Alert-->
+<div class="alert fade in">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Atention: </strong> <?php echo $msj; ?>
+</div>
+<!--Ends Alert-->
+<?php
+}
+
 ?>
