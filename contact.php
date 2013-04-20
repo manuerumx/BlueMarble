@@ -5,7 +5,7 @@ require_once 'inc/bm_functionality.php';
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>More - The Blue Marble Project</title>
+    <title>Contact - The Blue Marble Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Blue Marble NASA SpaceApps Challenge Image">
     <meta name="description" content="Small project for SpaceApps Challenge 2013">
@@ -42,9 +42,9 @@ require_once 'inc/bm_functionality.php';
             <a class="brand" href="#">The Blue Marble Project</a>
             <div class="nav-collapse collapse">                
                 <ul class="nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="about.php">About</a></li>
+                    <li class="active"><a href="contact.php">Contact</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Archives <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -81,22 +81,27 @@ require_once 'inc/bm_functionality.php';
       <div class="container">
         <div class="hero-unit">
             <div class="row-fluid">
-                <div class="span12">
-                    <h1>Hello!</h1>
-                    <p>
-                        Explore and meet your home. Marvel through one of the largest files that have the planet earth.
-                    </p>
-                    <p>
-                        Learn more of this blue marble known more about the largest scientific endeavor of mankind and the benefits that space exploration has given mankind.                    
-                    </p>
-                    <p><a href="more.php" class="btn btn-primary btn-large">Learn more &raquo;</a>
-                    <hr></p>
-                    <blockquote class="pull-right">
-                        <p>
-                            Look again at that dot. That's here. That's home.
-                        </p>
-                        <small>Carl Sagan in <cite title="Pale Blue Dot">Pale Blue Dot</cite></small>
-                    </blockquote>                                        
+                <div class="span9">                    
+                    <h1>Hello</h1>
+
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-envelope"></i></span>
+                        <input id="prependedInput" class="input-large" type="text" placeholder="Email">
+                    </div>
+
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-edit"></i></span>
+                        <input id="prependedInput" class="input-large" type="text" placeholder="Subject">
+                    </div>
+                    <div>
+
+                    <textarea rows="10" class="input-xxlarge" placeholder="Message"></textarea>
+                    </div>
+                    <button class="btn btn-success" type="submit">Send</button>
+                    <button class="btn btn-danger" type="reset">Reset</button>
+                </div><!--/span-->
+                <div class="span3">
+                    <p>Tienes algo que decirnos? Descubriste algo interesante?</p>
                 </div><!--/span-->
             </div><!--/row-->
           </div>          
