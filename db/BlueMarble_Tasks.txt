@@ -1,0 +1,3 @@
+ Importing the CSV to a Database
+ 
+ mysqlimport -u root -pPASSWORDHERE --local bluemarble Images_Dataset.csv  --fields-terminated-by ',' --ignore-lines 1

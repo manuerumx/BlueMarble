@@ -13,7 +13,7 @@ namespace cnn;
 define('DB_HOST', 'localhost');
 define('DB_DATABASE', 'BlueMarble');
 define('DB_USER', 'root');
-define('DB_PASS', 'Adivina01');
+define('DB_PASS', 'guesswho');
 define('DB_PERSIST', true);
 /**
  * Class used for handle MySQL connections
@@ -94,7 +94,7 @@ class Connection{
      * @param $password string
      * @param $persistant boolean
      */
-    public function __construct($host =DB_HOST, $database = DB_DATABASE, $user = DB_USER, $password = DB_PASS, $persistant = DB_PERSIST) {        
+    public function __construct($host = DB_HOST, $database = DB_DATABASE, $user = DB_USER, $password = DB_PASS, $persistant = DB_PERSIST) {        
         $this->host = $host;
         $this->database = $database;
         $this->user = $user;
