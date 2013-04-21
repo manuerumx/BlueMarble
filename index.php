@@ -66,16 +66,17 @@ $session = new sessionx\bm_session("");
                             <li><a href="#"><i class="icon-globe"></i> Search by Mission</a></li>
                             <li><a href="#"><i class="icon-globe"></i> International Space Station</a></li>
                             <li><a href="#"><i class="icon-search"></i> Advanced Search</a></li>
+                            <li><a href="#"><i class="icon-picture"></i> Random Picture</a></li>
                             <li class="divider"></li>
                             <li class="nav-header">NASA Links</li>
                             <li><a href="http://www.nasa.gov/multimedia/imagegallery/iotd.html" target="_blank"><i class="icon-picture"></i> Picture of the Day</a></li>
-                            <li><a href="#"><i class="icon-picture"></i> Another Pictures</a></li>
+                            
                         </ul>
                     </li>                    
                 </ul>    
                 <!-- User options -->                                  
                 <ul class="nav pull-right">
-                    <li class=""><a href="#myModal" role="button"  data-toggle="modal">Login</a></li>
+                    <li class=""><a href="#myModal" role="button" data-toggle="modal">Login</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label">manuerumx</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -99,10 +100,12 @@ $session = new sessionx\bm_session("");
                 <div class="span8">
                     <h1>Hello!</h1>
                     <p>
-                        Explore and meet your home. Marvel through one of the largest files that have the planet earth.
+                        Explore and meet your home, our home. 
+                        Marvel through one of the largest files that have the planet earth.
                     </p>
                     <p>
-                        Learn more of this blue marble known more about the largest scientific endeavor of mankind and the benefits that space exploration has given mankind.                    
+                        Learn more of this blue marble, known more about the largest scientific 
+                        endeavor of mankind and the benefits that space exploration has given mankind.                    
                     </p>
                     <p><a href="more.php" class="btn btn-primary btn-large">Learn more &raquo;</a>
                     <hr></p>
@@ -115,32 +118,33 @@ $session = new sessionx\bm_session("");
                 </div><!--/span-->            
                 <div class="span4">                  
                     <div id="myCarousel" class="carousel slide">
-                        <ol class="carousel-indicators">
+                        <!--ol class="carousel-indicators">
                             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                             <li data-target="#myCarousel" data-slide-to="1"></li>
                             <li data-target="#myCarousel" data-slide-to="2"></li>
-                        </ol>
+                        </ol-->
                         <!-- Carousel items -->
                         <div class="carousel-inner">
                             <?php 
                             for($i=0;$i<count($missions);$i++){
-                                $act = ($i==0 ? "active" : "");
+                                $act = ($i==0 ? "active " : "");
                             ?>
-                            <div class="<?php echo $act;?> item">
-                                <p>
-                                    <img src="<?php echo $img[$i];?>"/>
-                                    <div class="carousel-caption">
-                                        <small>ISS Mission: <?php echo $mis[$i];?></small>
-                                    </div>
-                                </p>
-                            </div>
+                            <div class="<?php echo $act;?>item">
+                                <img src="<?php echo $img[$i];?>"/>
+                                <div class="carousel-caption">
+                                    <small>ISS Mission: <?php echo $mis[$i];?></small>
+                                    <a href="#" alt="See fullscreen" data-toggle="modal" onclick="$('#img<?php echo $i;?>').modal('show');">
+                                        <i class="icon-fullscreen icon-white pull-right"></i>
+                                    </a>
+                                </div>                                
+                            </div>                                                       
                             <?php
                             }
                             ?>
                         </div>
                         <!-- Carousel nav -->
-                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                        <!--a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a-->
                     </div>
                 </div><!--/span-->
             </div><!--/row-->
@@ -148,7 +152,12 @@ $session = new sessionx\bm_session("");
       </div>     
             <div id="push"></div>
     </div>
-
+    <?php for($i=0;$i<count($missions);$i++){?>
+    <div id="img<?php echo $i;?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <img src="<?php echo $img[$i];?>"/>
+        <div class="carousel-caption"><small>ISS Mission: <?php echo $mis[$i];?></small></div>
+    </div>
+    <?php }?>
     <div id="footer">        
       <div class="container">
           <div class="row-fluid">

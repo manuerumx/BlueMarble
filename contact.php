@@ -51,10 +51,11 @@ require_once 'inc/bm_functionality.php';
                             <li><a href="#"><i class="icon-globe"></i> Search by Mission</a></li>
                             <li><a href="#"><i class="icon-globe"></i> International Space Station</a></li>
                             <li><a href="#"><i class="icon-search"></i> Advanced Search</a></li>
+                            <li><a href="#"><i class="icon-picture"></i> Random Picture</a></li>
                             <li class="divider"></li>
                             <li class="nav-header">NASA Links</li>
                             <li><a href="http://www.nasa.gov/multimedia/imagegallery/iotd.html" target="_blank"><i class="icon-picture"></i> Picture of the Day</a></li>
-                            <li><a href="#"><i class="icon-picture"></i> Another Pictures</a></li>
+                            
                         </ul>
                     </li>                    
                 </ul>    
@@ -79,34 +80,34 @@ require_once 'inc/bm_functionality.php';
       </div>
       <!-- Begin page content -->
       <div class="container">
-        <div class="hero-unit">
+         <div class="hero-unit">
             <div class="row-fluid">
-                <div class="span9">                    
-                    <h1>Hello</h1>
-
+                <div class="span8">
+                    <p>Tienes algo que decirnos? Descubriste algo interesante?</p>
+                </div><!--/span-->
+                <div class="span4">
+                    <form>
+                    <h2>Contact us</h2>
                     <div class="input-prepend">
                         <span class="add-on"><i class="icon-envelope"></i></span>
-                        <input id="prependedInput" class="input-large" type="text" placeholder="Email">
+                        <input id="prependedInput" class="input-xlarge" type="text" placeholder="Email">
                     </div>
-
+                    <br>
                     <div class="input-prepend">
                         <span class="add-on"><i class="icon-edit"></i></span>
-                        <input id="prependedInput" class="input-large" type="text" placeholder="Subject">
+                        <input id="prependedInput" class="input-xlarge" type="text" placeholder="Subject">
                     </div>
                     <div>
-
-                    <textarea rows="10" class="input-xxlarge" placeholder="Message"></textarea>
+                        <textarea rows="10" class="span11" placeholder="Write us"></textarea>
                     </div>
                     <button class="btn btn-success" type="submit">Send</button>
                     <button class="btn btn-danger" type="reset">Reset</button>
-                </div><!--/span-->
-                <div class="span3">
-                    <p>Tienes algo que decirnos? Descubriste algo interesante?</p>
-                </div><!--/span-->
+                    </form>
+                </div><!--/span-->                
             </div><!--/row-->
-          </div>          
+          </div>
       </div>     
-            <div id="push"></div>
+      <div id="push"></div>
     </div>
 
     <div id="footer">        
