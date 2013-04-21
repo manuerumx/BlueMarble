@@ -1,16 +1,11 @@
 <?php
-error_reporting(0);
-require_once 'inc/bm_session.php';
 require_once 'inc/bm_functionality.php';
-//require_once('config/bm_conn.php');
-use sess as sessionx;
-$session = new sessionx\bm_session("");
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>The Blue Marble Project</title>
+    <title>Contact - The Blue Marble Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Blue Marble NASA SpaceApps Challenge Image">
     <meta name="description" content="Small project for SpaceApps Challenge 2013">
@@ -29,18 +24,8 @@ $session = new sessionx\bm_session("");
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="ico/favicon.ico">
-    
+    <link rel="shortcut icon" href="ico/favicon.ico">    
   </head>
-<?php
-    $missions = array('ISS007-E-16306','ISS026-E-23010','ISS031-E-162193','ISS031-E-163817','ISS005-E-14731','ISS025-E-9680','ISS007-E-10357');
-    $img = array();
-    $mis = array();
-    for($i=0; $i<count($missions); $i++){
-        $img[$i] = iss_small($missions[$i]);
-        $mis[$i] = iss_mission($missions[$i]);
-    }
-?>
   <body>
     <!-- Part 1: Wrap all page content here -->
     <div id="wrap">
@@ -57,9 +42,9 @@ $session = new sessionx\bm_session("");
             <a class="brand" href="#">The Blue Marble Project</a>
             <div class="nav-collapse collapse">                
                 <ul class="nav">
-                    <li class="active"><a href="index.php">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="about.php">About</a></li>
-                    <li><a href="contact.php">Contact</a></li>
+                    <li class="active"><a href="contact.php">Contact</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Archives <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -76,7 +61,7 @@ $session = new sessionx\bm_session("");
                 </ul>    
                 <!-- User options -->                                  
                 <ul class="nav pull-right">
-                    <li class=""><a href="#myModal" role="button" data-toggle="modal">Login</a></li>
+                    <li class=""><a href="#myModal" role="button"  data-toggle="modal">Login</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label">manuerumx</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -95,69 +80,36 @@ $session = new sessionx\bm_session("");
       </div>
       <!-- Begin page content -->
       <div class="container">
-        <div class="hero-unit">
+         <div class="hero-unit">
             <div class="row-fluid">
                 <div class="span8">
-                    <h1>Hello!</h1>
-                    <p>
-                        Explore and meet your home, our home. 
-                        Marvel through one of the largest files that have the planet earth.
-                    </p>
-                    <p>
-                        Learn more of this blue marble, known more about the largest scientific 
-                        endeavor of mankind and the benefits that space exploration has given mankind.                    
-                    </p>
-                    <p><a href="more.php" class="btn btn-primary btn-large">Learn more &raquo;</a>
-                    <hr></p>
-                    <blockquote class="pull-right">
-                        <p>
-                            Look again at that dot. That's here. That's home.
-                        </p>
-                        <small>Carl Sagan in <cite title="Pale Blue Dot">Pale Blue Dot</cite></small>
-                    </blockquote>                                        
-                </div><!--/span-->            
-                <div class="span4">                  
-                    <div id="myCarousel" class="carousel slide">
-                        <!--ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                        </ol-->
-                        <!-- Carousel items -->
-                        <div class="carousel-inner">
-                            <?php 
-                            for($i=0;$i<count($missions);$i++){
-                                $act = ($i==0 ? "active " : "");
-                            ?>
-                            <div class="<?php echo $act;?>item">
-                                <img src="<?php echo $img[$i];?>"/>
-                                <div class="carousel-caption">
-                                    <small>ISS Mission: <?php echo $mis[$i];?></small>
-                                    <a href="#" alt="See fullscreen" data-toggle="modal" onclick="$('#img<?php echo $i;?>').modal('show');">
-                                        <i class="icon-fullscreen icon-white pull-right"></i>
-                                    </a>
-                                </div>                                
-                            </div>                                                       
-                            <?php
-                            }
-                            ?>
-                        </div>
-                        <!-- Carousel nav -->
-                        <!--a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-                        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a-->
-                    </div>
+                    <p>Tienes algo que decirnos? Descubriste algo interesante?</p>
                 </div><!--/span-->
+                <div class="span4">
+                    <form>
+                    <h2>Contact us</h2>
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-envelope"></i></span>
+                        <input id="prependedInput" class="input-xlarge" type="text" placeholder="Email">
+                    </div>
+                    <br>
+                    <div class="input-prepend">
+                        <span class="add-on"><i class="icon-edit"></i></span>
+                        <input id="prependedInput" class="input-xlarge" type="text" placeholder="Subject">
+                    </div>
+                    <div>
+                        <textarea rows="10" class="span11" placeholder="Write us"></textarea>
+                    </div>
+                    <button class="btn btn-success" type="submit">Send</button>
+                    <button class="btn btn-danger" type="reset">Reset</button>
+                    </form>
+                </div><!--/span-->                
             </div><!--/row-->
-          </div>          
+          </div>
       </div>     
-            <div id="push"></div>
+      <div id="push"></div>
     </div>
-    <?php for($i=0;$i<count($missions);$i++){?>
-    <div id="img<?php echo $i;?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <img src="<?php echo $img[$i];?>"/>
-        <div class="carousel-caption"><small>ISS Mission: <?php echo $mis[$i];?></small></div>
-    </div>
-    <?php }?>
+
     <div id="footer">        
       <div class="container">
           <div class="row-fluid">

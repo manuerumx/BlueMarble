@@ -1,3 +1,115 @@
  Importing the CSV to a Database
  
- mysqlimport -u root -pPASSWORDHERE --local bluemarble Images_Dataset.csv  --fields-terminated-by ',' --ignore-lines 1
+ mysqlimport -u root -pguesswho --local bluemarble Images_Dataset.csv  --fields-terminated-by ',' --ignore-lines 1
+ 
+ 
+ ren .\ISS001.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS001.csv
+ ren .\ISS002.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS002.csv
+ ren .\ISS003.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS003.csv
+ ren .\ISS004.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS004.csv
+ ren .\ISS005.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS005.csv
+ 
+ ren .\ISS006.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS006.csv
+ ren .\ISS007.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS007.csv
+ ren .\ISS008.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS008.csv
+ ren .\ISS009.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS009.csv
+ ren .\ISS010.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS010.csv
+ 
+ 
+ ren .\ISS011.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS011.csv
+ ren .\ISS012.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS012.csv
+ ren .\ISS013.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS013.csv
+ ren .\ISS014.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS014.csv
+ ren .\ISS015.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS015.csv
+ 
+ ren .\ISS016.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS016.csv
+ ren .\ISS017.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS017.csv
+ ren .\ISS018.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS018.csv
+ ren .\ISS019.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS019.csv
+ ren .\ISS020.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS020.csv
+ 
+ ren .\ISS021.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS021.csv
+ ren .\ISS022.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS022.csv
+ ren .\ISS023.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS023.csv
+ ren .\ISS024.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS024.csv
+ ren .\ISS025.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS025.csv
+ 
+ ren .\ISS026.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS026.csv
+ ren .\ISS027.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS027.csv
+ ren .\ISS028.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS028.csv
+ ren .\ISS029.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS029.csv
+ ren .\ISS030.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS030.csv
+ 
+ ren .\ISS031.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS031.csv
+ ren .\ISS032.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS032.csv
+ ren .\ISS033.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS033.csv
+ ren .\ISS034.csv iss_dataset.csv
+ mysqlimport -u root -pguesswho --local bluemarble iss_dataset.csv  --fields-terminated-by ','
+ ren .\iss_dataset.csv ISS034.csv
+ 
