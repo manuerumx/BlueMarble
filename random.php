@@ -70,7 +70,7 @@ $cnn->Close();
                 <ul class="nav">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="about.php">About</a></li>
-                    <li class="active"><a href="contact.php">Contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Archives <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -82,7 +82,7 @@ $cnn->Close();
                             <li><a href="http://www.nasa.gov/multimedia/imagegallery/iotd.html" target="_blank"><i class="icon-picture"></i> Picture of the Day</a></li>                            
                         </ul>
                     </li>
-                    <li><a href="random.php"><i class="icon-picture icon-white"></i> Random</a></li>
+                    <li class="active"><a href="random.php"><i class="icon-picture icon-white"></i> Random</a></li>
                 </ul>    
                 <!-- User options -->                                  
                 <ul class="nav pull-right">
@@ -114,26 +114,44 @@ $cnn->Close();
                     </div>
                 </div><!--/span-->
                 <div class="span3">
-                    <div class="popover right" style="top: 175.5px; left: 905.5px; width: 300px; height: 450px;  display: block;">
+                    <div class="popover right" style="top: 125.5px; left: 905.5px; width: 300px; height: 430px;  display: block;">
                         <div class="arrow"></div>
-                        <h3 class="popover-title alert-heading">
-                            <span class="label label-info">Mission: </span> <?php echo $mission;?>
+                        <h3 class="popover-title">
+                            <?php echo $img;?>
                         </h3>
                         
-                        <div class="popover-content">                            
+                        <div class="popover-content">
+                            <span class="label label-info">Mission: </span>
+                            <br>
+                            <?php echo $mission;?>
+                            <br>
                             <span class="label label-info">Description</span>
                             <br>
                             <em>
                                 <small>No description available</small>
                             </em>
-                            <br>
-                                                       
-                            <span class="label label-info">Coordenates</span><br>
+                            <br>                                                       
+                            <span class="label label-info">Coordinates</span><br>
                             <small>Lat:</small> <span class="badge"><?php echo $lat;?>:</span>
                             &nbsp;
                             <small>Lon:</small> <span class="badge"><?php echo $lon;?></span>
                             <br>
-                            <span class="label label-info">Coordenates</span>
+                            
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Geographic name (of the object photographed)" onmouseover="$(this).tooltip();">
+                                <span class="label label-info"><i class="icon-info-sign icon-white"></i> Geographic name</span>
+                            </a>
+                            <br>
+                            <em>
+                                <small>No description available</small>
+                            </em>
+                            <br><br>
+                            <a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Any features (of the thing photographed), well features at the center of the image, then working outwards if notable" onmouseover="$(this).tooltip();">
+                                <span class="label label-info"><i class="icon-info-sign icon-white"></i> Features</span>                            
+                            </a>
+                            <br>                            
+                            <em>
+                                <small>No description available</small>
+                            </em>
                             <br>
                         </div>               
                     </div>

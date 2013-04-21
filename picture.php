@@ -51,13 +51,13 @@ set_time_limit(200);
                         <ul class="dropdown-menu">
                             <li><a href="#"><i class="icon-globe"></i> Search by Mission</a></li>
                             <li><a href="#"><i class="icon-globe"></i> International Space Station</a></li>
-                            <li><a href="#"><i class="icon-search"></i> Advanced Search</a></li>
-                            <li><a href="#"><i class="icon-picture"></i> Random Picture</a></li>
+                            <li><a href="#"><i class="icon-search"></i> Advanced Search</a></li>                            
                             <li class="divider"></li>
                             <li class="nav-header">NASA Links</li>
                             <li><a href="http://www.nasa.gov/multimedia/imagegallery/iotd.html" target="_blank"><i class="icon-picture"></i> Picture of the Day</a></li>                            
                         </ul>
-                    </li>                    
+                    </li>
+                    <li><a href="random.php"><i class="icon-picture icon-white"></i> Random</a></li>
                 </ul>    
                 <!-- User options -->                                  
                 <ul class="nav pull-right">
