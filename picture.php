@@ -1,12 +1,30 @@
 <?php
 require_once 'inc/bm_functionality.php';
-set_time_limit(200);
+$img = $_GET['img'];
+$pic = iss_small($img);
+$mission = iss_mission($img);
+$num = rand(9000, 50000);
+
+$rand = rand(0, 100);
+//$rand = $rand / 100.0;
+        
+$psi = number_format($rand, 2);
+$pno = number_format(100 - $psi,2);
+$psi.="%";
+$pno.="%";
+
+function retPerc($num){    
+    $rand = rand(0, $num);
+    return $rand;
+}
+$i = 100;
+$b = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Picture - The Blue Marble Project</title>
+    <title><?php echo $img;?> - The Blue Marble Project</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Blue Marble NASA SpaceApps Challenge Image">
     <meta name="description" content="Small project for SpaceApps Challenge 2013">
@@ -28,6 +46,7 @@ set_time_limit(200);
     <link rel="shortcut icon" href="ico/favicon.ico">    
   </head>
   <body>
+      
     <!-- Part 1: Wrap all page content here -->
     <div id="wrap">
       <!-- Fixed navbar -->
@@ -44,7 +63,7 @@ set_time_limit(200);
             <div class="nav-collapse collapse">                
                 <ul class="nav">
                     <li><a href="index.php">Home</a></li>
-                    <li class="active"><a href="about.php">About</a></li>
+                    <li><a href="about.php">About</a></li>
                     <li><a href="contact.php">Contact</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Archives <b class="caret"></b></a>
@@ -63,9 +82,7 @@ set_time_limit(200);
                 <ul class="nav pull-right">
                     <li class=""><a href="#myModal" role="button"  data-toggle="modal">Login</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="label">manuerumx</span> 
-                        <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="label">manuerumx</span> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li class="nav-header">User</li>
                             <li><a href="#"><i class="icon-edit"></i> Settings </a></li>
@@ -81,67 +98,124 @@ set_time_limit(200);
         </div>
       </div>
       <!-- Begin page content -->
-      <div class="container">        
-            <?php 
-            require_once 'config/bm_conn.php';
-            $cnn = new \cnn\Connection();
-            $sql = "SELECT  i.*
-            FROM    (
-                    SELECT  @cnt := COUNT(*) + 1,
-                            @lim := 12
-                    FROM    iss_dataset
-                    ) vars
-            STRAIGHT_JOIN
-                    (
-                    SELECT  r.*,
-                            @lim := @lim - 1
-                    FROM    iss_dataset r
-                    WHERE   (@cnt := @cnt - 1)
-                            AND RAND() < @lim / @cnt
-                    ) i;";
-            $cnn->Query($sql);
-            $i=1;
-            while($cnn->Fetch(false)){
-                $img = $cnn->row[0];
-                $pic = iss_thumb($img);
-                $mission = iss_mission($img);
-                if($i==1){
-                ?>
-                <div class="row-fluid">
-                <?php
-                }
-                ?>
-                <div class="span2 well well-small ">                    
-                    <img class="img-rounded" src="<?php echo $pic;?>"/>
-                    <span class="label label-info">
-                        Mission: <?php echo $mission;?>
-                    </span>
+      <div class="container">
+        <div class="hero-unit">
+            <h3><?php echo $img;?></h3>
+            <div class="row-fluid">                
+                <div class="span12 pagination-centered">
+                    <img src="<?php echo $pic;?>" alt=""/>                    
                 </div><!--/span-->
-                <?php                
-                if($i % 6 == 0){
-                    echo "<!-- $i -->"; 
-                    $i = 0;
-                ?>
-                    </div><br><!--/row--> 
-                <?php
-                }
-                $i++;
-            }
-            ?>            
-            <div class="pagination pull-right">
-                <ul>
-                  <li class="disabled"><a href="#">Prev</a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">Next</a></li>
-                </ul>
+            </div><!--/row-->
+            <h3>About</h3> <span class="badge"><?php echo number_format($num,0);?> anwsers</span>
+            <div class="row-fluid">                
+                <div class="span4">
+                    <h4>It is the Earth?</h4>
+                    <span class="badge badge-info">Yes <?php echo $psi;?></span>                    
+                    <div class="progress progress-info progress-striped">
+                        <div class="bar" style="width: <?php echo $psi;?>"></div>
+                    </div>
+                    <span class="badge badge-success">No <?php echo $pno;?></span>
+                    <div class="progress progress-success progress-striped">
+                        <div class="bar" style="width: <?php echo $pno;?>"></div>
+                    </div>
+                </div><!--/span-->
+                <?php $b= retPerc($i);?>
+                <div class="span4">
+                    <h4>Which continent?</h4>    
+                    <span class="badge badge-info">America <?php echo number_format($b, 2);?>%</span>
+                    <div class="progress progress-info progress-striped">
+                        <div class="bar" style="width: <?php echo number_format($b, 2); $i= $i-$b; $b= retPerc($i);?>%"></div>
+                    </div>
+                    
+                    <span class="badge badge-success">Europa <?php echo number_format($b, 2);?>%</span>
+                    <div class="progress progress-success progress-striped">
+                        <div class="bar" style="width: <?php echo number_format($b, 2); $i= $i-$b; $b= retPerc($i);?>%"></div>
+                    </div>
+                    
+                    <span class="badge badge-warning">Africa <?php echo number_format($b, 2);?>%</span>
+                    <div class="progress progress-warning progress-striped">
+                        <div class="bar" style="width: <?php echo number_format($b, 2); $i= $i-$b; $b= retPerc($i);?>%"></div>
+                    </div>
+                    
+                    <span class="badge badge-danger2">Asia <?php echo number_format($b, 2);?>%</span>
+                    <div class="progress progress-danger progress-striped">
+                        <div class="bar" style="width: <?php echo number_format($b, 2); $i= $i-$b; $b= retPerc($i);?>%"></div>
+                    </div>
+                </div>
+                <div class="span4">
+                    <h4>&nbsp;</h4>
+                    <span class="badge badge-info">Oceania <?php echo number_format($b, 2);?>%</span>                    
+                    <div class="progress progress-info">
+                        <div class="bar" style="width: <?php echo number_format($b, 2); $i= $i-$b; $b= retPerc($i);?>%"></div>
+                    </div>
+                    
+                    <span class="badge badge-success">Antartica <?php echo number_format($b, 2);?>%</span>                    
+                    <div class="progress progress-success">
+                        <div class="bar" style="width: <?php echo number_format($b, 2); $i= $i-$b; $b= retPerc($i);?>%"></div>
+                    </div>
+                    
+                    <span class="badge badge-warning">Ocean <?php echo number_format($b, 2);?>%</span>                    
+                    <div class="progress progress-warning">
+                        <div class="bar" style="width: <?php echo number_format($b, 2); $i= $i-$b; $b= retPerc($i);?>%"></div>
+                    </div>
+                    
+                    <span class="badge badge-danger2">Don't Know <?php echo number_format($b, 2);?>%</span>
+                    <div class="progress progress-danger">
+                        <div class="bar" style="width: <?php echo number_format($b, 2); $i= $i-$b; $b= retPerc($i);?>%"></div>
+                    </div>                    
+                </div><!--/span-->
+            </div><!--/row-->
+            <div class="row-fluid">                
+                <div class="span12">            
+                    <h4>See any particular feature?</h4>
+                </div><!--/span-->
             </div>
-            
-            
-        
+            <?php 
+                $i = $num;
+                $b= retPerc($i);
+            ?>
+            <div class="row-fluid">
+                <div class="span3">
+                    <span class="input-block-level label label-info pagination-centered">City <br><?php echo number_format($b, 0); $i= $i-$b; $b= retPerc($i);?></span>
+                </div>
+                <div class="span3">
+                    <span class="input-block-level label label-success pagination-centered">Volcano <br><?php echo number_format($b, 0); $i= $i-$b; $b= retPerc($i);?></span>                    
+                </div>    
+                <div class="span3">    
+                    <span class="input-block-level label label-warning pagination-centered">River <br><?php echo number_format($b, 0); $i= $i-$b; $b= retPerc($i);?></span>                    
+                </div>    
+                <div class="span3">
+                    <span class="input-block-level label label-important pagination-centered">Coast <br><?php echo number_format($b, 0); $i= $i-$b; $b= retPerc($i);?></span>
+                </div>
+            </div><!--/row-->
+            <hr>
+            <div class="row-fluid">
+                <div class="span3">
+                    <span class="input-block-level label label-warning pagination-centered">Satellite <br><?php echo number_format($b, 0); $i= $i-$b; $b= retPerc($i);?></span>                    
+                </div>                    
+                <div class="span3">                        
+                    <span class="input-block-level label label-important pagination-centered">Moon<br><?php echo number_format($b, 0); $i= $i-$b; $b= retPerc($i);?></span>                    
+                </div>                
+                <div class="span3">
+                    <span class="input-block-level label label-info pagination-centered">Clouds <br><?php echo number_format($b, 0); $i= $i-$b; $b= retPerc($i);?></span>                    
+                </div>
+                <div class="span3">
+                    <span class="input-block-level label label-success pagination-centered">Mountains <br><?php echo number_format($b, 0); $i= $i-$b; $b= retPerc($i);?></span>                    
+                </div>          
+            </div><!--/row-->
+            <hr>
+            <div class="row-fluid">                    
+                <div class="span4">    
+                    <span class="input-block-level label label-success pagination-centered">Shuttle <br><?php echo number_format($b, 0); $i= $i-$b; $b= retPerc($i);?></span>
+                </div>             
+                <div class="span4">
+                    <span class="input-block-level label label-info pagination-centered">ISS <br><?php echo number_format($b, 0); $i= $i-$b; $b= retPerc($i);?></span>                    
+                </div>
+                <div class="span4">
+                    <span class="input-block-level label label-warning pagination-centered">Aurora Borealis <br><?php echo number_format($b, 0); $i= $i-$b; $b= retPerc($i);?></span>                    
+                </div>
+            </div><!--/row-->
+          </div>
       </div>     
             <div id="push"></div>
     </div>
@@ -183,8 +257,5 @@ set_time_limit(200);
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script>    
-    //$("#example").popover("show");    
-    </script>
   </body>
 </html>

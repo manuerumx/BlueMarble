@@ -4385,6 +4385,22 @@ a.thumbnail:focus {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffc43c35', GradientType=0);
 }
+/**added**/
+.badge-danger2 {
+  background-color: #e14;
+}
+.progress-danger2 .bar,
+.progress .bar-danger2 {
+  background-color: #e14;
+  background-image: -moz-linear-gradient(top, #b94a48, #e14);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b94a48), to(#e14));
+  background-image: -webkit-linear-gradient(top, #b94a48, #e14);
+  background-image: -o-linear-gradient(top, #b94a48, #e14);
+  background-image: linear-gradient(to bottom, #b94a48, #e14);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe5e5e5', endColorstr='#ffb94a48', GradientType=0);
+}
+
 .progress-danger.progress-striped .bar,
 .progress-striped .bar-danger {
   background-color: #ee5f5b;
@@ -6433,4 +6449,30 @@ code {
     height: auto;
     margin-bottom: 15px;
     padding: 6px 9px;
+}
+
+/**/
+.face-icon{
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../img/facebook_16.png");
+  background-position: 14px 14px;
+ 
+  margin-top: 1px;
+}
+.twit-icon{
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../img/twitter_16.png");
+  background-position: 14px 14px;
+ 
+  margin-top: 1px;
 }

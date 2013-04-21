@@ -1,7 +1,15 @@
 <?php
 require_once 'inc/bm_functionality.php';
 require_once 'config/bm_conn.php';
+$img = "";
+
 $cnn = new \cnn\Connection();
+if(isset($_GET['img'])){
+    $img = $_GET['img'];
+    $sql = "select * from iss_dataset where mission = '".$img."'";
+}else{
+    
+
 $sql = "SELECT  i.*
 FROM    (
         SELECT  @cnt := COUNT(*) + 1,
@@ -16,6 +24,7 @@ STRAIGHT_JOIN
         WHERE   (@cnt := @cnt - 1)
                 AND RAND() < @lim / @cnt
         ) i;";
+}
 $cnn->Query($sql);
 $i=1;
 while($cnn->Fetch(false)){
@@ -105,19 +114,24 @@ $cnn->Close();
       </div>
       <!-- Begin page content -->
       <div class="container">
-         <div class="hero-unit">            
+         <div class="">            
             <div class="row-fluid">
-                <div class="span9 show-grid">
+                <div class="span9 text-center">
                     <div class="carousel-inner">
                         <img class="img-rounded" src="<?php echo $pic;?>" />                        
                     </div>
                 </div><!--/span-->
-                <div class="span3">
-                    <div class="popover right" style="top: 70.5px; left: 905.5px; width: 300px; height: 430px;  display: block;">
+                <div class="span3 ">
+                    <div class="popover right" style="top: 58.5px; left: 905.5px; width: 300px; height: 430px;  display: block;">
                         <div class="arrow"></div>
                         <h3 class="popover-title">
                             <?php echo $img;?>
                             <div class="pull-right">
+                                <a href="picture.php?img=<?php echo $img;?>">
+                                    <span class="badge badge-info">
+                                        <i class="icon-info-sign icon-white"></i>
+                                    </span>
+                                </a>
                                 <a href="#" onclick="addGallery();">
                                     <span class="badge badge-inverse" id="gallerybadge">
                                         <i class="icon-heart icon-white" id="galleryicon"></i>
@@ -132,52 +146,43 @@ $cnn->Close();
                             <?php echo $mission;?>
                             <br>
                             <span class="label label-info">Description</span>
-                            <br>
-                            <em>
-                                <small>No description available</small>
-                            </em>
-                            <br>                                                       
+                            <span class="input-block-level uneditable-input" data-toggle="tooltip" data-placement="top" title="" data-original-title="Only registered users can edit" onmouseover="$(this).tooltip();">Contents editable</span>                           
+                            
                             <span class="label label-info">Coordinates</span><br>
                             <small>Lat:</small> <span class="badge"><?php echo $lat;?>:</span>
                             &nbsp;
                             <small>Lon:</small> <span class="badge"><?php echo $lon;?></span>
-                            <br>
-                            
+                            <br><br>
                             <a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Geographic name (of the object photographed)" onmouseover="$(this).tooltip();">
                                 <span class="label label-info"><i class="icon-info-sign icon-white"></i> Geographic name</span>
-                            </a>
-                            <br>
-                            <em>
-                                <small>No description available</small>
-                            </em>
-                            <br><br>
+                            </a>                            
+                            <span class="input-block-level uneditable-input" data-toggle="tooltip" data-placement="top" title="" data-original-title="Only registered users can edit" onmouseover="$(this).tooltip();">Contents editable</span>
                             <a href="#" data-toggle="tooltip" data-placement="right" title="" data-original-title="Any features (of the thing photographed), well features at the center of the image, then working outwards if notable" onmouseover="$(this).tooltip();">
                                 <span class="label label-info"><i class="icon-info-sign icon-white"></i> Features</span>                            
                             </a>
                             <br>                            
-                            <em>
-                                <small>No description available</small>
-                            </em>
-                            <br>
+                            <span class="input-block-level uneditable-input" data-toggle="tooltip" data-placement="top" title="" data-original-title="Only registered users can edit" onmouseover="$(this).tooltip();">Contents editable</span>
+                            <em>Tags: </em>
+                            <a href="#"><span class="badge badge-success">ISS</span></a> <a href="#"><span class="badge badge-success">Earth</span></a> <a href="#"><span class="badge badge-success">Africa</span></a>
+                            <br><br>
+                            <div id="socialmedia" class="pull-right">
+                                <button class="btn btn-info" onclick="$('#Quizz').modal('show');">Take a Quiz</button>&nbsp;
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="" data-original-title="Share with your friends" onmouseover="$(this).tooltip();">
+                                    <i class="face-icon"></i>
+                                </a> &nbsp;
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="" data-original-title="Tweet with your friends" onmouseover="$(this).tooltip();">
+                                    <i class="twit-icon"></i>
+                                </a>                                
+                            </div>
+                            <div class="pull-right"><em><small>Take a Quiz, help NASA &amp; invite your friends</small></em></div>
                         </div>               
                     </div>
                 </div><!--/span-->                
             </div><!--/row--> 
-            <g:plusone size="small"></g:plusone>
-                    <script type="text/javascript">
-                      (function(){var po=document.createElement('script');po.type='text/javascript';po.async=true;po.src='https://apis.google.com/js/plusone.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po,s);})();
-                    </script> 
-                    
-                    <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.php2html.comyr.com&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=30" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:30px;" allowTransparency="true"></iframe>
-                    <style>.fbook{position: absolute; font-color:#ddd; top:-1668px; font-size:10;}</style>
-                    
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
-                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
           </div>
       </div>     
       <div id="push"></div>
     </div>
-
     <div id="footer">        
       <div class="container">
           <div class="row-fluid">
@@ -209,6 +214,7 @@ $cnn->Close();
     <?php 
     echo Login();
     echo Register();
+    echo Quiz();
     ?>
     <!-- Le javascript
     ================================================== -->
@@ -217,10 +223,17 @@ $cnn->Close();
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript">
        function addGallery(){
+       if($('#gallerybadge').attr("class") == 'badge badge-inverse'){
            $('#gallerybadge').removeClass('badge-inverse');
            $('#gallerybadge').addClass('badge-success');
            $('#galleryicon').removeClass('icon-heart');
            $('#galleryicon').addClass('icon-ok');
+       }else{
+           $('#gallerybadge').addClass('badge-inverse');
+           $('#gallerybadge').removeClass('badge-success');
+           $('#galleryicon').addClass('icon-heart');
+           $('#galleryicon').removeClass('icon-ok');
+       }
        }
     </script>
   </body>
