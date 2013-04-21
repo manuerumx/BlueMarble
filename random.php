@@ -105,8 +105,7 @@ $cnn->Close();
       </div>
       <!-- Begin page content -->
       <div class="container">
-         <div class="hero-unit">
-             <h3>Le random picture</h3>
+         <div class="hero-unit">            
             <div class="row-fluid">
                 <div class="span9 show-grid">
                     <div class="carousel-inner">
@@ -114,10 +113,17 @@ $cnn->Close();
                     </div>
                 </div><!--/span-->
                 <div class="span3">
-                    <div class="popover right" style="top: 125.5px; left: 905.5px; width: 300px; height: 430px;  display: block;">
+                    <div class="popover right" style="top: 70.5px; left: 905.5px; width: 300px; height: 430px;  display: block;">
                         <div class="arrow"></div>
                         <h3 class="popover-title">
                             <?php echo $img;?>
+                            <div class="pull-right">
+                                <a href="#" onclick="addGallery();">
+                                    <span class="badge badge-inverse" id="gallerybadge">
+                                        <i class="icon-heart icon-white" id="galleryicon"></i>
+                                    </span>
+                                </a>
+                            </div>
                         </h3>
                         
                         <div class="popover-content">
@@ -156,7 +162,17 @@ $cnn->Close();
                         </div>               
                     </div>
                 </div><!--/span-->                
-            </div><!--/row-->
+            </div><!--/row--> 
+            <g:plusone size="small"></g:plusone>
+                    <script type="text/javascript">
+                      (function(){var po=document.createElement('script');po.type='text/javascript';po.async=true;po.src='https://apis.google.com/js/plusone.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po,s);})();
+                    </script> 
+                    
+                    <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.php2html.comyr.com&amp;layout=button_count&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=30" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:30px;" allowTransparency="true"></iframe>
+                    <style>.fbook{position: absolute; font-color:#ddd; top:-1668px; font-size:10;}</style>
+                    
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
           </div>
       </div>     
       <div id="push"></div>
@@ -199,5 +215,13 @@ $cnn->Close();
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+       function addGallery(){
+           $('#gallerybadge').removeClass('badge-inverse');
+           $('#gallerybadge').addClass('badge-success');
+           $('#galleryicon').removeClass('icon-heart');
+           $('#galleryicon').addClass('icon-ok');
+       }
+    </script>
   </body>
 </html>
