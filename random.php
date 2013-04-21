@@ -1,5 +1,31 @@
 <?php
 require_once 'inc/bm_functionality.php';
+require_once 'config/bm_conn.php';
+$cnn = new \cnn\Connection();
+$sql = "SELECT  i.*
+FROM    (
+        SELECT  @cnt := COUNT(*) + 1,
+                @lim := 1
+        FROM    iss_dataset
+        ) vars
+STRAIGHT_JOIN
+        (
+        SELECT  r.*,
+                @lim := @lim - 1
+        FROM    iss_dataset r
+        WHERE   (@cnt := @cnt - 1)
+                AND RAND() < @lim / @cnt
+        ) i;";
+$cnn->Query($sql);
+$i=1;
+while($cnn->Fetch(false)){
+    $img = $cnn->row[0];
+    $pic = iss_small($img);
+    $mission = iss_mission($img);
+    $lat = $cnn->row[1];
+    $lon = $cnn->row[2];    
+}
+$cnn->Close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,28 +106,37 @@ require_once 'inc/bm_functionality.php';
       <!-- Begin page content -->
       <div class="container">
          <div class="hero-unit">
+             <h3>Le random picture</h3>
             <div class="row-fluid">
-                <div class="span8">
-                    ashhdjahdjadhkadasjdahdjasdjasjdhdsjahdjsahdjashjdhk
+                <div class="span9 show-grid">
+                    <div class="carousel-inner">
+                        <img class="img-rounded" src="<?php echo $pic;?>" />                        
+                    </div>
                 </div><!--/span-->
-                <div class="span4">
-                    <form>
-                    <h2>Contact us</h2>
-                    <div class="input-prepend">
-                        <span class="add-on"><i class="icon-envelope"></i></span>
-                        <input id="prependedInput" class="input-xlarge" type="text" placeholder="Email">
+                <div class="span3">
+                    <div class="popover right" style="top: 175.5px; left: 905.5px; width: 300px; height: 450px;  display: block;">
+                        <div class="arrow"></div>
+                        <h3 class="popover-title alert-heading">
+                            <span class="label label-info">Mission: </span> <?php echo $mission;?>
+                        </h3>
+                        
+                        <div class="popover-content">                            
+                            <span class="label label-info">Description</span>
+                            <br>
+                            <em>
+                                <small>No description available</small>
+                            </em>
+                            <br>
+                                                       
+                            <span class="label label-info">Coordenates</span><br>
+                            <small>Lat:</small> <span class="badge"><?php echo $lat;?>:</span>
+                            &nbsp;
+                            <small>Lon:</small> <span class="badge"><?php echo $lon;?></span>
+                            <br>
+                            <span class="label label-info">Coordenates</span>
+                            <br>
+                        </div>               
                     </div>
-                    <br>
-                    <div class="input-prepend">
-                        <span class="add-on"><i class="icon-edit"></i></span>
-                        <input id="prependedInput" class="input-xlarge" type="text" placeholder="Subject">
-                    </div>
-                    <div>
-                        <textarea rows="10" class="span11" placeholder="Write us"></textarea>
-                    </div>
-                    <button class="btn btn-success" type="submit">Send</button>
-                    <button class="btn btn-danger" type="reset">Reset</button>
-                    </form>
                 </div><!--/span-->                
             </div><!--/row-->
           </div>

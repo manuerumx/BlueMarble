@@ -2,9 +2,37 @@
 error_reporting(0);
 require_once 'inc/bm_session.php';
 require_once 'inc/bm_functionality.php';
-//require_once('config/bm_conn.php');
+require_once 'config/bm_conn.php';
 use sess as sessionx;
 $session = new sessionx\bm_session("");
+$cnn = new \cnn\Connection();
+$sql = "SELECT  i.*
+FROM    (
+        SELECT  @cnt := COUNT(*) + 1,
+                @lim := 10
+        FROM    iss_dataset
+        ) vars
+STRAIGHT_JOIN
+        (
+        SELECT  r.*,
+                @lim := @lim - 1
+        FROM    iss_dataset r
+        WHERE   (@cnt := @cnt - 1)
+                AND RAND() < @lim / @cnt
+        ) i;";
+$cnn->Query($sql);
+$missions = array();
+while($cnn->Fetch(false)){
+    $img = $cnn->row[0];
+    array_push($missions, $img);
+}
+
+$img = array();
+$mis = array();
+for($i=0; $i<count($missions); $i++){
+    $img[$i] = iss_small($missions[$i]);
+    $mis[$i] = iss_mission($missions[$i]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,15 +60,6 @@ $session = new sessionx\bm_session("");
     <link rel="shortcut icon" href="ico/favicon.ico">
     
   </head>
-<?php
-    $missions = array('ISS007-E-16306','ISS026-E-23010','ISS031-E-162193','ISS031-E-163817','ISS005-E-14731','ISS025-E-9680','ISS007-E-10357');
-    $img = array();
-    $mis = array();
-    for($i=0; $i<count($missions); $i++){
-        $img[$i] = iss_small($missions[$i]);
-        $mis[$i] = iss_mission($missions[$i]);
-    }
-?>
   <body>
     <!-- Part 1: Wrap all page content here -->
     <div id="wrap">
@@ -59,21 +78,20 @@ $session = new sessionx\bm_session("");
                 <ul class="nav">
                     <li class="active"><a href="index.php">Home</a></li>
                     <li><a href="about.php">About</a></li>
-                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>                    
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Archives <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#"><i class="icon-globe"></i> Search by Mission</a></li>
                             <li><a href="#"><i class="icon-globe"></i> International Space Station</a></li>
-                            <li><a href="#"><i class="icon-search"></i> Advanced Search</a></li>
-                            <li><a href="#"><i class="icon-picture"></i> Random Picture</a></li>
+                            <li><a href="#"><i class="icon-search"></i> Advanced Search</a></li>                            
                             <li class="divider"></li>
                             <li class="nav-header">NASA Links</li>
-                            <li><a href="http://www.nasa.gov/multimedia/imagegallery/iotd.html" target="_blank"><i class="icon-picture"></i> Picture of the Day</a></li>
-                            
+                            <li><a href="http://www.nasa.gov/multimedia/imagegallery/iotd.html" target="_blank"><i class="icon-picture"></i> Picture of the Day</a></li>                            
                         </ul>
-                    </li>                    
-                </ul>    
+                    </li>
+                    <li><a href="random.php"><i class="icon-picture icon-white"></i> Random</a></li>
+                </ul>
                 <!-- User options -->                                  
                 <ul class="nav pull-right">
                     <li class=""><a href="#myModal" role="button" data-toggle="modal">Login</a></li>
@@ -130,7 +148,7 @@ $session = new sessionx\bm_session("");
                                 $act = ($i==0 ? "active " : "");
                             ?>
                             <div class="<?php echo $act;?>item">
-                                <img src="<?php echo $img[$i];?>"/>
+                                <img class="img-rounded" src="<?php echo $img[$i];?>"/>
                                 <div class="carousel-caption">
                                     <small>ISS Mission: <?php echo $mis[$i];?></small>
                                     <a href="#" alt="See fullscreen" data-toggle="modal" onclick="$('#img<?php echo $i;?>').modal('show');">

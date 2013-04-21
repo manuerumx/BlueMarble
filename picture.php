@@ -88,7 +88,7 @@ set_time_limit(200);
             $sql = "SELECT  i.*
             FROM    (
                     SELECT  @cnt := COUNT(*) + 1,
-                            @lim := 60
+                            @lim := 12
                     FROM    iss_dataset
                     ) vars
             STRAIGHT_JOIN
@@ -97,7 +97,7 @@ set_time_limit(200);
                             @lim := @lim - 1
                     FROM    iss_dataset r
                     WHERE   (@cnt := @cnt - 1)
-                            AND RAND(20130420) < @lim / @cnt
+                            AND RAND() < @lim / @cnt
                     ) i;";
             $cnn->Query($sql);
             $i=1;
@@ -127,7 +127,18 @@ set_time_limit(200);
                 }
                 $i++;
             }
-            ?>
+            ?>            
+            <div class="pagination pull-right">
+                <ul>
+                  <li class="disabled"><a href="#">Prev</a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">Next</a></li>
+                </ul>
+            </div>
             
             
         
@@ -171,6 +182,9 @@ set_time_limit(200);
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script>    
+    //$("#example").popover("show");    
+    </script>
   </body>
 </html>

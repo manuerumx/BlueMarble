@@ -4617,12 +4617,13 @@ a.thumbnail:focus {
   margin-left: -10px;
 }
 .popover-title {
+  color: #5f5f5f;/*not original*/
   margin: 0;
   padding: 8px 14px;
   font-size: 14px;
   font-weight: normal;
   line-height: 18px;
-  background-color: #f7f7f7;
+  background-color: #f1f1f1;
   border-bottom: 1px solid #ebebeb;
   -webkit-border-radius: 5px 5px 0 0;
   -moz-border-radius: 5px 5px 0 0;
@@ -4633,6 +4634,7 @@ a.thumbnail:focus {
 }
 .popover-content {
   padding: 9px 14px;
+  color: #9f9f9f; /*not original*/
 }
 .popover .arrow,
 .popover .arrow:after {
