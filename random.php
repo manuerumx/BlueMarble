@@ -118,7 +118,9 @@ $cnn->Close();
             <div class="row-fluid">
                 <div class="span9 text-center">
                     <div class="carousel-inner">
-                        <img class="img-rounded" src="<?php echo $pic;?>" />                        
+                        <a href="random.php">
+                        <img class="img-rounded" src="<?php echo $pic;?>" />
+                        </a>
                     </div>
                 </div><!--/span-->
                 <div class="span3 ">
