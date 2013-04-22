@@ -4385,6 +4385,22 @@ a.thumbnail:focus {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffc43c35', GradientType=0);
 }
+/**added**/
+.badge-danger2 {
+  background-color: #e14;
+}
+.progress-danger2 .bar,
+.progress .bar-danger2 {
+  background-color: #e14;
+  background-image: -moz-linear-gradient(top, #b94a48, #e14);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b94a48), to(#e14));
+  background-image: -webkit-linear-gradient(top, #b94a48, #e14);
+  background-image: -o-linear-gradient(top, #b94a48, #e14);
+  background-image: linear-gradient(to bottom, #b94a48, #e14);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe5e5e5', endColorstr='#ffb94a48', GradientType=0);
+}
+
 .progress-danger.progress-striped .bar,
 .progress-striped .bar-danger {
   background-color: #ee5f5b;
@@ -4455,7 +4471,7 @@ a.thumbnail:focus {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .hero-unit {
-  padding: 60px;
+  padding: 10px;
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 200;
@@ -4617,12 +4633,13 @@ a.thumbnail:focus {
   margin-left: -10px;
 }
 .popover-title {
+  color: #5f5f5f;/*not original*/
   margin: 0;
   padding: 8px 14px;
   font-size: 14px;
   font-weight: normal;
   line-height: 18px;
-  background-color: #f7f7f7;
+  background-color: #f1f1f1;
   border-bottom: 1px solid #ebebeb;
   -webkit-border-radius: 5px 5px 0 0;
   -moz-border-radius: 5px 5px 0 0;
@@ -4633,6 +4650,7 @@ a.thumbnail:focus {
 }
 .popover-content {
   padding: 9px 14px;
+  color: #9f9f9f; /*not original*/
 }
 .popover .arrow,
 .popover .arrow:after {
@@ -6431,4 +6449,30 @@ code {
     height: auto;
     margin-bottom: 15px;
     padding: 6px 9px;
+}
+
+/**/
+.face-icon{
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../img/facebook_16.png");
+  background-position: 14px 14px;
+ 
+  margin-top: 1px;
+}
+.twit-icon{
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("../img/twitter_16.png");
+  background-position: 14px 14px;
+ 
+  margin-top: 1px;
 }

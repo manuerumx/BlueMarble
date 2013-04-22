@@ -91,6 +91,7 @@ function Register(){
 <?php    
 }
 
+
 function iss_mission($mrf){
     $data = array();
     $data = explode("-",$mrf);
@@ -118,5 +119,86 @@ function iss_large($mrf){
     $base = "http://eol.jsc.nasa.gov/sseop/images/ESC/large/$mission/$mrf.jpg";
     return $base;
 }
+
+
+
+
+
+
+function Quiz(){
+?>
+<!--Quizzz-->
+    <div id="Quizz" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <form class="form-signin">                
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>                
+            <h2 class="form-signin-heading">Please answer this questions</h2>
+
+            <label>It is the Earth?</label>
+            <div class="pagination-centered">
+                <div class="btn-group" data-toggle="buttons-radio">
+                    <button class="btn" type="button">Yes</button>
+                    <button class="btn" type="button">No</button>
+                </div>
+            </div>
+            <br>
+            <label>Which continent?</label>
+            <div class="pagination-centered">
+                <div class="btn-group" data-toggle="buttons-radio">
+                <button class="btn" type="button">America</button>
+                <button class="btn" type="button">Europe</button>
+                <button class="btn" type="button">Africa</button>
+                <button class="btn" type="button">Asia</button>
+                <button class="btn" type="button">Oceania</button>
+                <br>
+                <button class="btn" type="button">Antartica</button>
+                <button class="btn" type="button">Is the Ocean</button>
+                <button class="btn" type="button">I don't know</button>
+                </div>
+            </div>
+            
+            
+            <br>
+            <label>See any particular feature?</label>
+            <em class="muted"><small>Select all that appear in the image</small></em>
+            <div class="pagination-centered">
+                <div class="btn-group" data-toggle="buttons-checkbox">
+                <button class="btn" type="button">City</button>
+                <button class="btn" type="button">Volcano</button>
+                <button class="btn" type="button">River</button>
+                <button class="btn" type="button">Coast</button>
+                <button class="btn" type="button">Clouds</button>                
+                <button class="btn" type="button">Mountains</button>
+                <br>
+                <button class="btn" type="button">Satellite</button>
+                <button class="btn" type="button">Moon</button>
+                <button class="btn" type="button">ISS</button>
+                <button class="btn" type="button">Space shuttle</button>
+                <button class="btn" type="button">Aurora Borealis</button>
+                
+                </div>
+            </div>
+            
+            <br><br>
+            <button class="btn btn-success pull-right" type="submit" data-dismiss="modal" aria-hidden="true">Anwser >></button>
+            <br>
+        </form>
+        
+    </div>
+    <!--End Quizzz-->
+<?php
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
 
